@@ -1,4 +1,4 @@
-import NavBar from '@/components/NavBar'
+"use server"
 import Banner from '@/components/main/home/Banner'
 import Header from '@/components/main/home/Header'
 import React from 'react'
