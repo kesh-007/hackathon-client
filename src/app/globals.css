@@ -4,6 +4,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Poppins:wght@300;400;500;700&family=Quicksand:wght@400;700&family=Roboto:wght@300;500;700&family=Space+Mono&family=Ubuntu:wght@300;400&display=swap');
 
 
+::-webkit-scrollbar{
+  display: none;
+}
+
 div {
    font-family: 'Poppins', sans-serif;
   
