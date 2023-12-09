@@ -8,6 +8,13 @@
   display: none;
 }
 
+.graph {
+  background-image: url("./graph.png");
+  background-repeat: no-repeat;
+  /* background-position: ; */
+  background-size: cover;
+}
+
 div {
    font-family: 'Poppins', sans-serif;
   

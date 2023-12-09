@@ -20,13 +20,17 @@ export default function TreasureHunt(){
   return (
     <div className="h-screen flex flex-1 flex-col w-screen" >
       <NavigationBar/>
+      
       <div className="absolute top-0 bottom-0 left-0 right-0 flex justify-center  flex-col items-center">
+          
           <div className="bg-red-800 rounded-[10em] relative flex justify-center items-center border-green-500">
-            <div  className="bg-red-500 flex flex-1 absolute p-[4.05rem] py-[5.08rem] rounded-[5rem]"><p className="text-transparent">askdjad</p></div>
+            <div  className="bg-red-500 flex absolute p-[6.3rem] py-[7.5rem] rounded-[8rem]"><p className="text-transparent">askdjad</p></div>
             <StepCount progress={progress}/>
           </div>
       </div>
-      <div className="flex flex-[0.7] justify-center items-center py-10 bg-gradient-to-t from-[#F64D41] to-red-700" />
+      <div className="flex flex-[0.7] graph items-end bg-gradient-to-t from-[#F64D41] to-red-700" >
+        <div className="h-full bg-gradient-to-t from-red-700 via-transparent to-transparent w-full "><p>askdjnas</p></div>
+      </div>
       <div className="flex flex-[0.8] bg-red-700">
         <Steps progress = {progress}/>
       </div>
