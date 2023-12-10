@@ -1,5 +1,6 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import  Cookies  from 'universal-cookie';
 import {
     Avatar,
     AvatarFallback,
@@ -10,17 +11,49 @@ import {
   
 
 const Header = () => {
+  const cookies = new Cookies();
+  const [name,setName] = useState('')
+  const[url,setUrl] = useState('') 
+
+  useEffect(() => {
+    const storedAccessToken = cookies.get('accessToken');
+    const storedRefreshToken = cookies.get('refreshToken');
+    const displayName=cookies.get('displayName');
+    const profileUrl=cookies.get('profilePhotoUrl');
+    const userID = cookies.get('userID');
+    if(!cookies.get('token') )
+    {
+
+    cookies.set("token",
+    {
+      accestoken:storedAccessToken,
+      refreshtoken:storedRefreshToken,
+      profile:{
+        displayName:displayName,
+        profilePhotoUrl:profileUrl,
+        userID:userID
+      }
+    })
+
+    }
+  }, []);
+  useEffect(()=>{
+    const token = cookies.get('token');
+    setName(token.profile.displayName)
+    setUrl(token.profile.profilePhotoUrl)
+  },[])
+
   return (
     <div className='p-3'>
         <div className='flex justify-between'>
             <div className='flex gap-3'>
 
             <Avatar>
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-      <AvatarFallback>CN</AvatarFallback>
+      <AvatarImage src={`${url}`} alt="@shadcn" />
+      <AvatarFallback>{name}</AvatarFallback>
     </Avatar>
     <div>
-        <h1 className=' text-gray-500'>Hello Keshav</h1>
+        <h1 className=' text-gray-500'>Hello {name}</h1>
         <h1 className='text-sm font-bold'>Ready to play?</h1>
 
     </div>
