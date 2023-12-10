@@ -8,6 +8,10 @@
   display: none;
 }
 
+html , body{
+  overflow-x: hidden;
+}
+
 .graph {
   background-image: url("./graph.png");
   background-repeat: no-repeat;

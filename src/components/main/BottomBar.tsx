@@ -20,7 +20,7 @@ const BottomNavBar = () => {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 w-full dark:bg-inherit bg-white border p-4 flex justify-between items-center text-xl ">
+    <nav className="fixed bottom-0 left-0 right-0 w-full dark:bg-inherit bg-white border p-4 flex justify-between items-center text-xl bg-white">
       <div onClick={() => handleIconClick("home")} >
         <Link href={'/home'}>
         <GoHome className={getIconStyle("home")} color={active === "home" ? "#F64D41" : "#ccc"} />

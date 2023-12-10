@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import StepCount from "./Components/StepCount";
 import Steps from "./Components/Steps";
-import NavigationBar from "./NavigationBar";
+import NavigationBar from "./Components/NavigationBar";
 
 export default function TreasureHunt(){
 
@@ -19,7 +19,7 @@ export default function TreasureHunt(){
 
   return (
     <div className="h-screen flex flex-1 flex-col w-screen" >
-      <NavigationBar/>
+      <NavigationBar />
       
       <div className="absolute top-0 bottom-0 left-0 right-0 flex justify-center  flex-col items-center">
           
