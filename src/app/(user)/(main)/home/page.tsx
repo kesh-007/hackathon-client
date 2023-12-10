@@ -11,6 +11,7 @@ const page = () => {
   return (
     <div> 
       <Header/>
+      
       <Banner/>
       <div className='p-3 font-bold'>
         <p className='text-xl py-2'>Category</p>
