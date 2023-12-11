@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react'
 import axios from 'axios';
 import { useState } from 'react';
@@ -95,4 +95,4 @@ function Page() {
 }
 
 
-export default Page
+export default Page;

@@ -1,8 +1,9 @@
-'use client'
+'use client';
 import React from 'react'
 import axios from 'axios';
 import { useState } from 'react';
 import Link from 'next/link'
+import { AdminContestForm } from './AdminContestForm';
 
 
 function Page() {
@@ -40,8 +41,9 @@ function Page() {
     <div className='flex justify-center'>{suc?<h1 className='text-center bg-green-500 p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Submitted</h1>:<h1></h1>}</div>
     </div>
     <h1 className='text-center font-bold text-4xl mt-20'>Add Contest</h1>
-  <div className=' md:p-10 p-5 lg:ml-40 lg:mr-40  md:m-10 m-5 border-2 border-grey rounded bg-slate-400 '>
-    <form className='flex flex-col gap-2' >
+  <div className=' md:p-10 p-5 lg:ml-40 lg:mr-40  md:m-10 m-5 rounded '>
+    <AdminContestForm/> 
+    {/* <form className='flex flex-col gap-2' >
     <label  className=' text-lg font-semibold mt-2'  htmlFor="name">Contest Type</label>
         <select  className='p-2 rounded-md' onChange={(e)=>{
           setIndat({...indat,ct:e.target.value})}}>
@@ -86,7 +88,7 @@ function Page() {
 
    <button className=' bg-red-500 font-semibold p-3 rounded sm:mt-10 mt-5 w-40 ml-20 sm:ml-60 xl:ml-8 lg:w-1/3 md:ml-72 md:w-60  hover:bg-black hover:text-white'  type="submit"  onClick={hassubmit}>Submit</button>
      
-    </form>
+    </form> */}
   </div>
 
   </>
