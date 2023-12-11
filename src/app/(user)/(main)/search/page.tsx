@@ -1,6 +1,9 @@
 import React from 'react'
 import Events from './Components/Events'
-import NavigationBar from './Components/NavigationBar'
+import NavigationBar from './Components/NavigationBar';
+import { ScrollArea } from "@/components/ui/scroll-area"; 
+import OtherEvent from './Components/OtherEvents';
+
 
 const page = () => {
   return (
@@ -19,11 +22,9 @@ const page = () => {
       <div>
           <Events title={"Walkathon"}/>
       </div>
-      <div className='p-5'>
+      <div className='overflow-x-hidden mx-5'>
           <p className='text-2xl'>Others</p>
-          <div className='h-[10rem] bg-red-500 my-5'>
-
-          </div>
+            <OtherEvent />
       </div>
     </div>
   )
