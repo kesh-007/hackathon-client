@@ -20,7 +20,7 @@ const BottomNavBar = () => {
   };
 
   return (
-    <div className="flex bg-white justify-between p-5 fixed bottom-0 left-0 right-0 justify-center text-xl">
+    <div style={{zIndex : 100}} className="flex bg-white justify-between p-5 fixed bottom-0 left-0 right-0 justify-center text-xl">
         <div onClick={() => handleIconClick("home")} >
          <Link href={'/home'}>
          <GoHome className={getIconStyle("home")} color={active === "home" ? "#F64D41" : "#ccc"} />
