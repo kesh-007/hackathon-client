@@ -13,7 +13,7 @@ const page = () => {
 
  const [suc,setSuc]=useState(false)
 
- const hassubmit = async (e) => {
+ const hassubmit = async (e:any) => {
     e.preventDefault(); 
     setSuc(true)
     setTimeout(()=>{setSuc(false); },3000)

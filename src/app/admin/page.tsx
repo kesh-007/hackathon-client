@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import { useState } from 'react';
-import Link from 'next/link'
 const page = () => {
 
  const [data,setData]=useState({
@@ -14,7 +13,7 @@ const page = () => {
  
  
 
- const hassubmit = async (e) => {
+ const hassubmit = async (e:any) => {
     e.preventDefault(); 
     
    

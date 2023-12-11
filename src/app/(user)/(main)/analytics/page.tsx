@@ -5,6 +5,12 @@ import ProgressCharts from './Components/ProgressCharts'
 import WorkoutGraph from './Components/WorkoutGraph'
 import Tab from "./Components/Tab";
 
+import { FaEllipsisVertical } from "react-icons/fa6";
+
+import { FaArrowLeft } from "react-icons/fa";
+import StepCounter from './Components/StepCounter';
+import NavBar from '@/components/NavBar';
+
 // Tabs component is remaining
 
 // rgba(246, 77, 65, 0.1) -> #F64D41
@@ -96,18 +102,17 @@ const highlightScope = {
 
   return (
     <div className='h-screen overflow-y-scroll'>
-      <div className='flex justify-center my-10'>
-        <p className='text-2xl font-bold'>Results</p>
-      </div>
-      {/* <div>
-        <NavigationBar/>
-      </div> */}
-      {/* <Tab/> */}
-      <div className='flex items-center justify-center flex-col'>
-          <p className='text-8xl font-bold'>{moves}</p>
-          <p className='text-gray-400'>MOVES/days</p>
-      </div>
+      <div className='my-10'>
+        <div className='flex justify-between px-4 text-2xl'>
+      <FaArrowLeft />
 
+        <p className='text-xl font-bold'>Results</p>
+        <FaEllipsisVertical />
+        </div>
+
+      </div>
+      
+<StepCounter/>
       <div className='my-6 flex justify-center flex-col items-center gap-5'>
             <p className='text-2xl'>Your life style is</p>
             <div className='bg-red-500 p-2 rounded-[1rem] px-5'>
@@ -115,7 +120,7 @@ const highlightScope = {
             </div>
       </div>
 
-      <ProgressCharts stepsCount={80} calories={1024} weight={65}/>
+      <ProgressCharts />
       <div className='mx-5 pb-10 rounded-lg bg-gray-200'>
         <WorkoutGraph data={series}/>
       </div>

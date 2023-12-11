@@ -6,6 +6,7 @@ import {
     AvatarFallback,
     AvatarImage,
   } from "@/components/ui/avatar"
+import { IoIosNotificationsOutline } from 'react-icons/io';
   // import { IoIosNotificationsOutline } from "react-icons/io";
 
   
@@ -21,6 +22,9 @@ const Header = () => {
     const displayName=cookies.get('displayName');
     const profileUrl=cookies.get('profilePhotoUrl');
     const userID = cookies.get('userID');
+    const currentDate = new Date();
+const expirationDate = new Date(currentDate.getTime() + 30 * 24 * 60 * 60 * 1000); // 30 days in milliseconds
+//cookies.set('accessToken', storedAccessToken, { path: '/', expires: expirationDate });
     if(!cookies.get('token') )
     {
 
@@ -33,7 +37,7 @@ const Header = () => {
         profilePhotoUrl:profileUrl,
         userID:userID
       }
-    })
+    },{ path: '/', expires: expirationDate })
 
     }
   }, []);
@@ -49,19 +53,19 @@ const Header = () => {
             <div className='flex gap-3'>
 
             
-    {/* <div>
+     <div>
         <h1 className=' text-gray-500'>Hello {name}</h1>
-        <h1 className='text-sm font-bold'>Ready to play?</h1>
+        {/* <h1 className='text-sm font-bold'>Ready to play?</h1> */}
 
     </div>
-     */}
+     
 
     </div>
 
     <div className='bg-gray-200 rounded-full p-1 w-10 h-10 flex items-center justify-center'>
-  {/* <IoIosNotificationsOutline size={24} /> */}
+  <IoIosNotificationsOutline size={24} /> 
       <Avatar>
-          <AvatarImage src={`${url}`} alt="@shadcn" />
+          <AvatarImage src={`${url}`} alt={`${name}`} />
           <AvatarFallback>{name}</AvatarFallback>
       </Avatar>
     </div>
