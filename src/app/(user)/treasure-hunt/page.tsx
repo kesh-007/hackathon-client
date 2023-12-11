@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import StepCount from "./Components/StepCount";
 import Steps from "./Components/Steps";
 import NavigationBar from "./Components/NavigationBar";
+import ProgressCharts from "../(main)/analytics/Components/ProgressCharts";
 
 export default function TreasureHunt(){
 
   const [progress, setProgress] = useState(10);
+
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -17,24 +19,49 @@ export default function TreasureHunt(){
     };
   }, []);
 
+  const hints = [
+    {
+      hint : "asldkalsndalksndlaknsldknalskndalknsdlkansldkn asdbasdkjnasd olasdn",
+    },
+    {
+      hint : "asldkalsndalksndlaknsldknalskndalknsdlkansldkn asdbasdkjnasd olasdn",
+    },
+    {
+      hint : "asldkalsndalksndlaknsldknalskndalknsdlkansldkn asdbasdkjnasd olasdn",
+    },
+    {
+      hint : "asldkalsndalksndlaknsldknalskndalknsdlkansldkn asdbasdkjnasd olasdn",
+    },
+    {
+      hint : "asldkalsndalksndlaknsldknalskndalknsdlkansldkn asdbasdkjnasd olasdn",
+    },
+  ]
+
   return (
-    <div className="h-screen flex flex-1 flex-col w-screen" >
+    <div className="h-screen flex flex-col overflow-y-scroll" >
       <NavigationBar />
+      <div className="relative h-screen">
+        <div className="absolute top-0 bottom-0 left-0 right-0 flex justify-end  flex-col items-center pb-10">
+            
+            <div className="bg-red-200 rounded-[10em] relative flex justify-center items-center">
+              <div  className="bg-gray-100 flex absolute p-[3.5rem] py-[4.5rem] rounded-[8rem]">
+                <p className="text-transparent">askdjad</p></div>
+              <StepCount progress={progress}/>
+            </div>
+        </div>
+      </div>
       
-      <div className="absolute top-0 bottom-0 left-0 right-0 flex justify-center  flex-col items-center">
-          
-          <div className="bg-red-800 rounded-[10em] relative flex justify-center items-center border-green-500">
-            <div  className="bg-red-500 flex absolute p-[6.3rem] py-[7.5rem] rounded-[8rem]"><p className="text-transparent">askdjad</p></div>
-            <StepCount progress={progress}/>
-          </div>
-      </div>
-      <div className="flex flex-[0.7] graph items-end bg-gradient-to-t from-[#F64D41] to-red-700" >
-        <div className="h-full bg-gradient-to-t from-red-700 via-transparent to-transparent w-full "><p>askdjnas</p></div>
-      </div>
-      <div className="flex flex-[0.8] bg-red-700">
-        <Steps progress = {progress}/>
-      </div>
       {/* <div className="flex flex-[0.15] bg-gray-300"/> */}
+      
+      <div className="pb-5">
+        <ProgressCharts stepsCount={45} weight={65} calories={1024}/>
+        <Steps 
+          progress = {progress}
+          hints={hints}
+        />
+      </div>
+      
+      
             
     </div>
   );

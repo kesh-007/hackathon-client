@@ -17,11 +17,11 @@ export default function Walkathon() {
         </div> */}
         <NavigationBar/>
         <Graph/> 
-        <ProgressCharts/>
+        <ProgressCharts stepsCount={100} weight={65} calories={1024}/>
         <div className="mx-5 rounded-lg">
           <MapComponent/>
         </div>
-        {/* </div> */}
+        <div className="h-[20rem]"/>
     </div>
     // <MapComponent/>
     

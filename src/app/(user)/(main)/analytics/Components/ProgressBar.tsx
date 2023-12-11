@@ -13,7 +13,7 @@ function CircularProgressWithLabel(
   return (
     <Box sx={{ position: 'relative', display: 'inline-flex' }}>
       <CircularProgress 
-            className='rounded-[9.5rem] text-purple-500' 
+            className='rounded-[9.5rem] text-red-500' 
             variant="determinate" 
             {...props} 
             size={100} 

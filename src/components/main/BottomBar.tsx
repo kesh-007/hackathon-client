@@ -20,37 +20,35 @@ const BottomNavBar = () => {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 w-full dark:bg-inherit bg-white border p-4 flex justify-between items-center text-xl bg-white">
-      <div onClick={() => handleIconClick("home")} >
-        <Link href={'/home'}>
-        <GoHome className={getIconStyle("home")} color={active === "home" ? "#F64D41" : "#ccc"} />
+    <div className="flex bg-white justify-between p-5 fixed bottom-0 left-0 right-0 justify-center text-xl">
+        <div onClick={() => handleIconClick("home")} >
+         <Link href={'/home'}>
+         <GoHome className={getIconStyle("home")} color={active === "home" ? "#F64D41" : "#ccc"} />
         </Link>
-      </div>
-
-      <div onClick={() => handleIconClick("search")}>
+       </div>
+       <div onClick={() => handleIconClick("search")}>
         <Link href={'/search'}>
         <IoSearchSharp className={getIconStyle("search")} color={active === "search" ? "#F64D41" : "#ccc"} />
         </Link>
       </div>
-
       <div onClick={() => handleIconClick("analytics")}>
         <Link href={'/analytics'}>
         <SiGoogleanalytics className={getIconStyle("analytics")} color={active === "analytics" ? "#F64D41" : "#ccc"} />
         </Link>
       </div>
-
       <div onClick={() => handleIconClick("notepad")}>
         <Link href={'/blog'}>
         <PiNotepad className={getIconStyle("notepad")} color={active === "notepad" ? "#F64D41" : "#ccc"} />
         </Link>
       </div>
-
+      
       <div onClick={() => handleIconClick("account")}>
         <Link href={'/profile'}>
         <VscAccount className={getIconStyle("account")} color={active === "account" ? "#F64D41" : "#ccc"} />
         </Link>
       </div>
-    </nav>
+        
+    </div>
   );
 };
 

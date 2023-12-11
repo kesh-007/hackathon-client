@@ -29,7 +29,7 @@ export default function MapComponent() {
 	// console.log(direction);
 
 	return (
-		<main className={classes.mainStyle} style={{ border : "50px" }}>
+		<main className={classes.mainStyle} style={{ borderRadius : "50px" , height : "25rem"}}>
 			
 			<Map
 				mapboxAccessToken={mapboxToken}
@@ -39,6 +39,7 @@ export default function MapComponent() {
 				initialViewState={{ latitude: 35.668641, longitude: 39.750567, zoom: 10 }}
 				maxZoom={20}
 				minZoom={3}
+				
 			>
 				<GeolocateControl position="top-left" />
 				<NavigationControl position="top-left" />

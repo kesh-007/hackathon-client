@@ -7,6 +7,8 @@ import Tab from "./Components/Tab";
 
 // Tabs component is remaining
 
+// rgba(246, 77, 65, 0.1) -> #F64D41
+
 const page = () => {
 
   
@@ -89,16 +91,35 @@ const highlightScope = {
     },
   ].map((s) => ({ ...s, highlightScope }));
 
+  let moves = 647;
+  let life_status = "Active";
+
   return (
-    <div className='h-screen'>
-      <div>
-        <NavigationBar/>
+    <div className='h-screen overflow-y-scroll'>
+      <div className='flex justify-center my-10'>
+        <p className='text-2xl font-bold'>Results</p>
       </div>
-      <Tab/>
+      {/* <div>
+        <NavigationBar/>
+      </div> */}
+      {/* <Tab/> */}
+      <div className='flex items-center justify-center flex-col'>
+          <p className='text-8xl font-bold'>{moves}</p>
+          <p className='text-gray-400'>MOVES/days</p>
+      </div>
+
+      <div className='my-6 flex justify-center flex-col items-center gap-5'>
+            <p className='text-2xl'>Your life style is</p>
+            <div className='bg-red-500 p-2 rounded-[1rem] px-5'>
+              <p className='text-white'>{life_status}</p>
+            </div>
+      </div>
+
       <ProgressCharts stepsCount={80} calories={1024} weight={65}/>
-      <div className='bg-gray-200 mx-5 pb-10 rounded-lg'>
+      <div className='mx-5 pb-10 rounded-lg bg-gray-200'>
         <WorkoutGraph data={series}/>
       </div>
+      <div className='h-[5rem]'/>
     </div>
   )
 }
