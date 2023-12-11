@@ -62,7 +62,7 @@ const expirationDate = new Date(currentDate.getTime() + 30 * 24 * 60 * 60 * 1000
 
     </div>
 
-    <div className='bg-gray-200 rounded-full p-1 w-10 h-10 flex items-center justify-center'>
+    <div className='bg-gray-200  rounded-full p-1 w-10 h-10 flex items-center justify-center'>
   <IoIosNotificationsOutline size={24} /> 
       <Avatar>
           <AvatarImage src={`${url}`} alt={`${name}`} />
