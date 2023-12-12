@@ -12,6 +12,7 @@ import Link from 'next/link'
 import { GiCycling } from "react-icons/gi";
 import { FaPersonSwimming } from "react-icons/fa6";
 import { FaDumbbell } from "react-icons/fa6";
+import StepCounts from './Components/StepCounts'
 
 const page = () => {
 
@@ -74,10 +75,7 @@ const page = () => {
       <div className='px-5 text-gray-400'>
           <p><span>{date.getDate()} {getMonthName()} {date.getFullYear()}</span></p>
           <p className='text-black text-2xl font-bold'>Lastest Activity</p>
-          <div className='mt-3'>
-              <p className='text-red-500 text-4xl font-bold'>{375}</p>
-              <p>Moves/daily</p>
-          </div>
+<StepCounts/>
       </div>
 
       <div className='h-[9em] w-full  mt-2 flex gap-5 overflow-x-scroll p-5'>
