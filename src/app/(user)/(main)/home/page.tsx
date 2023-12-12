@@ -1,28 +1,26 @@
-"use server"
-import Banner from '@/components/main/home/Banner'
-import Header from '@/components/main/home/Header'
-import React from 'react'
+"use server";
+import Banner from "@/components/main/home/Banner";
+import Header from "@/components/main/home/Header";
+import React from "react";
 // import {DATA} from "./data/dummy";
 // import CategoryCard from './Components/CategoryCard';
 // import Graph from '../../walkathon/Components/Graph';
-import Workout from './Components/Workout'
-import Graph from '../../walkathon/Components/Graph'
-import Category from './Components/Category'
-import Link from 'next/link'
+import Workout from "./Components/Workout";
+import Graph from "../../walkathon/Components/Graph";
+import Category from "./Components/Category";
+import Link from "next/link";
 import { GiCycling } from "react-icons/gi";
 import { FaPersonSwimming } from "react-icons/fa6";
 import { FaDumbbell } from "react-icons/fa6";
-import StepCounts from './Components/StepCounts'
+import StepCounts from "./Components/StepCounts";
 
 const page = () => {
-
   let date = new Date();
 
-  function getMonthName(){
-
+  function getMonthName() {
     let month = "";
 
-    switch(date.getMonth()){
+    switch (date.getMonth()) {
       case 0:
         month = "Jan";
         break;
@@ -48,7 +46,6 @@ const page = () => {
         month = "Nov";
       case 11:
         month = "Dec";
-      
     }
 
     return month;
@@ -56,43 +53,46 @@ const page = () => {
 
   const Activities = [
     {
-      name : "Dumbells",
-      icon : <FaDumbbell/>
-   },
+      name: "Dumbells",
+      icon: <FaDumbbell />,
+    },
     {
-      name : "Cycling",
-      icon : <GiCycling />
-   },
+      name: "Cycling",
+      icon: <GiCycling />,
+    },
     {
-      name : "Swiming",
-      icon : <FaPersonSwimming/>
-   },
-]
-  
+      name: "Swiming",
+      icon: <FaPersonSwimming />,
+    },
+  ];
+
   return (
-    <div className='h-screen pb-10'> 
-      <Header/>
-      <div className='px-5 text-gray-400'>
-          <p><span>{date.getDate()} {getMonthName()} {date.getFullYear()}</span></p>
-          <p className='text-black text-2xl font-bold'>Lastest Activity</p>
-<StepCounts/>
+    <div className="h-screen pb-10">
+      <Header />
+      <div className="px-5 text-gray-400">
+        <p>
+          <span>
+            {date.getDate()} {getMonthName()} {date.getFullYear()}
+          </span>
+        </p>
+        <p className="text-black text-2xl font-bold">Latest Activity</p>
+        <StepCounts />
       </div>
 
-      <div className='h-[9em] w-full  mt-2 flex gap-5 overflow-x-scroll p-5'>
-        {
-          Activities.map((value , index) => (
-            <div key={index} className='rounded-lg flex bg-gray-300 flex-1 justify-center flex-col items-center'>
-                <div className='text-4xl'>
-                  {value.icon}
-                </div>
-                <p>{value.name}</p>
-            </div>
-          ))
-        }
+      <div className="h-[9em] w-full  mt-2 flex gap-5 overflow-x-scroll p-5">
+        {Activities.map((value, index) => (
+          <div
+            key={index}
+            className="rounded-lg flex bg-gray-300 flex-1 justify-center flex-col items-center"
+          >
+            <div className="text-4xl">{value.icon}</div>
+            <p>{value.name}</p>
+          </div>
+        ))}
       </div>
 
-      <div className='pt-3'>
-          <Workout/>
+      <div className="pt-3">
+        <Workout />
       </div>
 
       {/* <div className='mx-5 mt-10'>
@@ -101,28 +101,28 @@ const page = () => {
             <Category/>
           </div>
       </div> */}
-      <div className='mx-5 mt-6'>
+      <div className="mx-5 mt-6">
         <Banner></Banner>
       </div>
 
       <div>
-        <div className='mx-5 mt-10'>
-          <p className='text-black text-2xl font-bold'>Health History</p>
+        <div className="mx-5 mt-10">
+          <p className="text-black text-2xl font-bold">Health History</p>
         </div>
-          <div className='font-bold py-2 pb-10'>
-            <Graph/>
-          </div> 
+        <div className="font-bold py-2 pb-10">
+          <Graph />
+        </div>
       </div>
-      <div className='h-[5rem]'/>
-      
-      </div> 
-  )
-}
+      <div className="h-[5rem]" />
+    </div>
+  );
+};
 
-export default page
+export default page;
 
 // category section
-{/* <div className='p-3 font-bold'>
+{
+  /* <div className='p-3 font-bold'>
         <p className='text-xl py-2'>Category</p>
         <div className='flex gap-5 m-2 flex-1'>
         {
@@ -133,7 +133,7 @@ export default page
             );
           })
         }
-        </div> */}
+        </div> */
+}
 
 // health history graph
-
