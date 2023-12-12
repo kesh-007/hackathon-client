@@ -13,7 +13,7 @@ export default function AdminLayout({children}){
     
       <div className='flex gap-2 '>
   <div className=' flex-2 p-2   flex flex-col  fixed h-[100vh] w-[15%] bg-black'>
-  <h1 className='text-2xl text-center font-bold mt-10 border-b-2 pb-4 text-white'>FitAware admin</h1>
+  <h1 className='text-2xl text-center font-bold mt-10 border-b-2 pb-4 text-white'>FitAware Admin</h1>
   <ol className='mt-10'>
   <Link href='/admin/alleve'> <li className='text-lg font-medium md:mt-6  mt-4  bg-black text-gray-400 hover:text-white hover:bg-gray-900 p-2  rounded '  ><div className="flex gap-1"><AiOutlineSchedule  className='text-2xl text-center font-semibold' />Contest Schedule</div></li></Link>
   <Link href='/admin/alleve/events/login'> <li className='text-lg font-medium md:mt-6  mt-4  bg-black text-gray-400 hover:text-white hover:bg-gray-900 p-2  rounded' ><div className="flex gap-1"><RiAdminLine className='text-2xl text-center' />Add Admin</div></li></Link>

@@ -38,8 +38,8 @@ export default function Page() {
   <div className="ml-60">
       <div className="flex flex-col mt-10">
         <div className="flex gap-2 justify-between">
-          <div className="flex flex-col gap-4">
-          <div className="flex gap-2">
+          <div className="flex flex-col gap-6">
+          <div className="flex gap-2 mt-5">
           <EventCard 
               title={"Users"}
               childern = {<Button className="w-full">3221</Button>}
@@ -65,7 +65,7 @@ export default function Page() {
             <Card className="flex flex-2 border-2 border-gray-200 rounded bg-grey-100">
               <LineChart
                 width={320}
-                height={300}
+                height={280}
                 series={[{ data: uData, label: "Users" }]}
                 xAxis={[{ scaleType: "point", data: xLabels }]}
               />
@@ -75,7 +75,7 @@ export default function Page() {
                 mode="single"
                 selected={date}
                 onSelect={setDate}
-                className="rounded-md border pl-7"
+                className="rounded-md border pl-7 "
                 />
                 </div>
             </div>
