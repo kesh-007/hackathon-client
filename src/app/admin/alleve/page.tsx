@@ -21,6 +21,7 @@ import { EventCard } from "./Components/EventCard";
 import {Button} from "@/components/ui/button";
 import DataTable from "./Components/Table";
 import AdminLayout from "./layout";
+import NavBar from "@/components/NavBar";
 
 
 
@@ -34,46 +35,50 @@ export default function Page() {
 
   return (
     
-  <div>
-      <div className="flex mt-10 gap-2 justify-end">
-          
-            <Card className="flex flex-2">
-              <LineChart
-                width={700}
-                height={400}
-                series={[{ data: uData, label: "Users" }]}
-                xAxis={[{ scaleType: "point", data: xLabels }]}
-              />
-            </Card>
-            <div className="flex justify-end">
-              <Calendar
-                mode="single"
-                selected={date}
-                onSelect={setDate}
-                className="rounded-md border"
-                />
-            </div>
-            
-      </div>
-
+  <div className="ml-60">
       <div className="flex flex-col mt-10">
-        <div className="flex gap-4 justify-between">
+        <div className="flex gap-2 justify-between">
+          <div className="flex flex-col gap-4">
+          <div className="flex gap-2">
           <EventCard 
               title={"Users"}
               childern = {<Button className="w-full">3221</Button>}
           />
           <EventCard 
               title={"Walkathon"}
-              childern = {<Button className="w-full">Add</Button>}
+              childern = {<Link href='/admin/alleve/events/admin-wt'><Button className="w-full">Add</Button></Link>}
           />
           <EventCard 
               title={"Treasure Hunt"}
-              childern = {<Button className="w-full">Add</Button>}
+              childern = {<Link href='/admin/alleve/events/admin-th'><Button className="w-full">Add</Button></Link>}
           />
           <EventCard 
               title={"Others"}
-              childern = {<Button className="w-full">Add</Button>}
+              childern = {<Link href='/admin/alleve/events/oc'><Button className="w-full">Add</Button></Link>}
           />
+      </div>
+         <div className=" border-2 rounded">
+          <DataTable />   
+        </div>
+        </div>
+         <div>
+            <Card className="flex flex-2 border-2 border-gray-200 rounded bg-grey-100">
+              <LineChart
+                width={320}
+                height={300}
+                series={[{ data: uData, label: "Users" }]}
+                xAxis={[{ scaleType: "point", data: xLabels }]}
+              />
+            </Card>
+            <div className="mt-4">
+            <Calendar 
+                mode="single"
+                selected={date}
+                onSelect={setDate}
+                className="rounded-md border pl-7"
+                />
+                </div>
+            </div>
                 
           {/* <div className="flex-1">
             <Card className="h-[100%]">
@@ -128,11 +133,12 @@ export default function Page() {
             </Card> */}
           {/* </div> */}
         </div>
-        <div className=" mt-20 border rounded flex-3">
-          <DataTable/>
-        </div>
+        
+        
+        
+       
       </div>
-      <div className="h-[10rem]"/>
-    </div>
+     </div>
+    
   );
 }
