@@ -13,11 +13,12 @@ const Bar = () => {
   return (
     <div>
     <Card className='border-gray-300 border-2'>
+    <CardHeader className='text-center font-semibold text-xl'>Contest participant count </CardHeader>
     <BarChart
  xAxis={[{ scaleType: 'band', data: ['Walkathon', 'TresureHunt', 'PostContest'] }]}
  series={[{ data: [400, 630, 400], color:'blue',label:'Male'}, { data: [250, 300, 650],color:'red',label:'Female' }]}
  width={500}
- height={350}
+ height={290}
 />
   </Card>
   </div>

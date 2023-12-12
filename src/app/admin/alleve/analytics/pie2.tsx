@@ -10,7 +10,8 @@ import {
   } from "@/components/ui/card"
 export default function Pie2() {
   return (
-    <Card className='border-gray-300 border-2 pt-8'>
+    <Card className='border-gray-300 border-2 '>
+      <CardHeader className='text-center font-semibold text-lg'>Contest Participant Ratio </CardHeader>
     <PieChart 
       series={[
         {

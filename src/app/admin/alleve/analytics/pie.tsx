@@ -11,7 +11,8 @@ import {
 
 export default function Pie() {
   return (
-    <Card className='border-gray-300 border-2 p-5'>
+    <Card className='border-gray-300 border-2 pb-2'>
+      <CardHeader className='text-center font-semibold text-xl'>Users Gender Ratio </CardHeader>
     <PieChart
       series={[
         {
@@ -23,7 +24,7 @@ export default function Pie() {
         },
       ]}
       width={400}
-      height={250}
+      height={220}
     />
     </Card>
   );

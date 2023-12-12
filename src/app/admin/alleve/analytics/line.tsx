@@ -26,10 +26,11 @@ import {
     ];
   return (
    
-    <Card className='border-gray-300 border-2'>
+    <Card className='border-gray-300 border-2 '>
+      <CardHeader className='text-center font-semibold text-lg'>User count </CardHeader>
     <LineChart
        width={350}
-       height={270}
+       height={230}
        series={[
         { data: pData, label: 'Male',color:'blue' },
         { data: uData, label: 'Female',color:'red' },
