@@ -104,39 +104,60 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useState } from "react";
+import {useRouter} from 'next/navigation'
+
+
 
 
 export default function CardWithForm() {
 
+  const navigate = useRouter();
   const [email , setEmail] = useState("");
   const [password , setPassword] = useState("");
+  const [suc,setSuc]=useState(false)
+  
+  
+  function cl(){
+    if(email==='fitaware@gmail.com' && password==='1234'){
+      
+      navigate.push('/admin/alleve')
+      //redirect('/admin/alleve');
 
+    }
+    else{
+          setSuc(true)
+          setTimeout(()=>{
+            setSuc(false)
+          },3000);
+    }
+  }
   return (
-    <div className="flex justify-center items-center h-screen bg-white">
-        <Card className="w-[35rem] ">
-      <CardHeader className="flex">
-        <CardTitle>Login</CardTitle>
-        {/* <CardDescription>Deploy your new project in one-click.</CardDescription> */}
-      </CardHeader>
-      <CardContent>
-        <form className="gap-10 flex flex-col">
-          <div className="grid w-full items-center gap-4">
-            <div className="flex flex-col space-y-3 text-lg">
-              <Label htmlFor="name">Email</Label>
-              <Input id="name" placeholder="example@gmail.com" type="email" onChange={(e) => setEmail(e.target.value)} />
+    <>
+    <div className='flex justify-center'>{suc ? <h1 className='text-center bg-red-500 p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Wrong Details</h1> : <h1></h1>}</div><div className="flex justify-center items-center h-screen bg-white">
+      <Card className="w-[35rem] ">
+        <CardHeader className="flex">
+          <CardTitle>Login</CardTitle>
+          {/* <CardDescription>Deploy your new project in one-click.</CardDescription> */}
+        </CardHeader>
+        <CardContent>
+          <form className="gap-10 flex flex-col">
+            <div className="grid w-full items-center gap-4">
+              <div className="flex flex-col space-y-3 text-lg">
+                <Label htmlFor="name">Email</Label>
+                <Input id="name" placeholder="example@gmail.com" type="email" onChange={(e) => setEmail(e.target.value)} />
+              </div>
+              <div className="flex flex-col space-y-3 text-lg">
+                <Label htmlFor="name">Password</Label>
+                <Input id="name" onChange={(e) => setPassword(e.target.value)} type="password" />
+              </div>
             </div>
-            <div className="flex flex-col space-y-3 text-lg">
-              <Label htmlFor="name">Password</Label>
-              <Input id="name" onChange={(e) => setPassword(e.target.value)} type="password"/>
-            </div>
-          </div>
-        </form>
-      </CardContent>
-      <CardFooter className="flex w-full">
-        <Button className="w-full">Login</Button>
-      </CardFooter>
-    </Card>
-    </div>
+          </form>
+        </CardContent>
+        <CardFooter className="flex w-full">
+          <Button className="w-full" onClick={cl}>Login</Button>
+        </CardFooter>
+      </Card>
+    </div></>
     
   )
 }

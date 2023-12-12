@@ -48,9 +48,9 @@ export function AdminContestForm() {
   };
 
   return (
-    <Card className="w-full">
+    <Card className="w-[250%] overflow-scroll">
       <CardHeader>
-        <CardTitle>Create Context</CardTitle>
+        <CardTitle className="text-center">Create Context</CardTitle>
         {/* <CardDescription>Deploy your new project in one-click.</CardDescription> */}
       </CardHeader>
       <CardContent>
@@ -153,9 +153,9 @@ export function AdminContestForm() {
           </div>
         </form>
       </CardContent>
-      <CardFooter className="flex justify-end">
+      <CardFooter className="flex justify-center ">
         {/* <Button variant="outline">Cancel</Button> */}
-        <Button onClick={hassubmit}>Submit</Button>
+        <Button className='p-2 w-40' onClick={hassubmit}>Submit</Button>
       </CardFooter>
     </Card>
   );

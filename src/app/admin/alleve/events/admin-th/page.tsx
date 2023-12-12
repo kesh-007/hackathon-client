@@ -78,12 +78,12 @@ function Page() {
           <h1 className="text-md  mb-5">Admin Name</h1>
         </div> */}
 
-        <div className="ml-96 flex flex-col items-center">
+        <div className="ml-96 flex flex-col items-center ">
           <h1 className="text-center font-bold text-4xl mt-10 ">
             Add TreasureHunt Contest
           </h1>
 
-          <div className=" md:p-10 p-5 lg:ml-40 lg:mr-40  md:m-10 m-5 border rounded-md w-[100%]">
+          <div className=" md:p-10 p-5 lg:ml-40 lg:mr-40  md:m-10 border-2 border-gray-200 rounded-md w-[100%]">
             <form className="flex flex-col gap-2 ">
               <div className="flex flex-col gap-3 justify-center sm:flex-row ">
                 <div className="flex flex-col sm:w-1/2 ">
@@ -254,10 +254,10 @@ function Page() {
                   setdec(e.target.value);
                 }}
               ></textarea>
-              <div className="flex justify-end mt-7">
+              <div className="flex justify-center mt-7 ">
                 <button
                   onClick={hassubmit}
-                  className="bg-black rounded text-white p-2  border-2 border-black hover:bg-white hover:text-black font-semibold"
+                  className="bg-black rounded w-40 text-white p-3   border-2 border-black hover:bg-white hover:text-black font-semibold"
                 >
                   Submit
                 </button>

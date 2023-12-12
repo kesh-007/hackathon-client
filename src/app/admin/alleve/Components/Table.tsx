@@ -15,7 +15,8 @@ export default function DataTable(){
     const table_heading = ["Contest Type" , "Contest Name" , "Organizer" , "Date","Timing","Participatent Count","Status"];
 
     return (
-        <Table className="overflow-scroll">
+      
+        <Table className="overflow-scroll w-[100%] ">
             {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
             <TableHeader>
               <TableRow>
@@ -38,12 +39,15 @@ export default function DataTable(){
                         <TableCell>{value.date}</TableCell>
                         <TableCell>{value.time}</TableCell>
                         <TableCell>{value.count}</TableCell>
-                        <TableCell className="text-green-600 font-semibold">{value.status}</TableCell>
+                        {value.status=="In Progress"?<TableCell className="text-green-600 font-semibold">{value.status}</TableCell>:
+                        <TableCell className="text-blue-600 font-semibold">{value.status}</TableCell>}
+                        
               </TableRow>
                 ))
             }
             </TableBody>
           </Table>
+         
     );
 
 }
