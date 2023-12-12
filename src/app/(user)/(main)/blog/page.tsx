@@ -26,7 +26,7 @@ export default function Home() {
             <img className="w-[4.5rem] h-[4.5rem] rounded-2xl ml-4  mt-2 " src="https://cdn.shopify.com/s/files/1/0355/4056/6149/files/unnamed_9_480x480.jpg?v=1677604516" alt="image description"></img>
             <div className="flex flex-1 flex-col ml-2">
                   <p className="text-red-300 text-xs font-medium ">NEW BLOG</p>
-                  <p className="font-bold mt-1">12 Top Fitness Blogs You Need to Follow</p>
+                  <p className="font-bold mt-1 w-[18rem]">12 Top Fitness Blogs You Need to Follow</p>
                 <div className="flex items-center text-xs mt-1 ">
                     <FaRegClock />
                     <p className="ml-2 font-extralight">10 min ago</p>
@@ -42,7 +42,7 @@ export default function Home() {
             <img className="w-[4.5rem] h-[4.5rem] rounded-2xl ml-4  mt-2 " src="https://www.anytimefitness.co.in/wp-content/uploads/2023/10/flat-lay-arrangement-with-seeds-frame-1024x683.jpg" alt="image description"></img>
             <div className="flex flex-1 flex-col ml-2">
                   <p className="text-red-300 text-xs font-medium ">NEW BLOG</p>
-                  <p className="font-bold mt-1">How Much Protein are you Required to Eat per day for Muscle Building</p>
+                  <p className="font-bold mt-1 w-[18rem]">How Much Protein are you Required to Eat per day for Muscle Building</p>
                 <div className="flex items-center text-xs mt-1">
                     <FaRegClock />
                     <p className="font-extralight ml-2">1 hour ago</p>
@@ -57,7 +57,7 @@ export default function Home() {
             <img className="w-[4.5rem] h-[4.5rem] rounded-2xl ml-4  mt-2 " src="https://www.anytimefitness.co.in/wp-content/uploads/2023/10/flat-lay-arrangement-with-seeds-frame-1024x683.jpg" alt="image description"></img>
             <div className="flex flex-1 flex-col ml-2">
                   <p className="text-red-300 text-xs font-medium ">NEW BLOG</p>
-                  <p className="font-bold mt-1">How Much Protein are you Required to Eat per day for Muscle Building</p>
+                  <p className="font-bold mt-1 w-[18rem]">How Much Protein are you Required to Eat per day for Muscle Building</p>
                 <div className="flex items-center text-xs mt-1">
                     <FaRegClock />
                     <p className="font-extralight ml-2">1 hour ago</p>
@@ -71,7 +71,7 @@ export default function Home() {
             <img className="w-[4.5rem] h-[4.5rem] rounded-2xl ml-4  mt-2 " src="https://www.anytimefitness.co.in/wp-content/uploads/2023/10/flat-lay-arrangement-with-seeds-frame-1024x683.jpg" alt="image description"></img>
             <div className="flex flex-1 flex-col ml-2">
                   <p className="text-red-300 text-xs font-medium ">NEW BLOG</p>
-                  <p className="font-bold mt-1">How Much Protein are you Required to Eat per day for Muscle Building</p>
+                  <p className="font-bold mt-1 w-[18rem]">How Much Protein are you Required to Eat per day for Muscle Building</p>
                 <div className="flex items-center text-xs mt-1">
                     <FaRegClock />
                     <p className="font-extralight ml-2">1 hour ago</p>
