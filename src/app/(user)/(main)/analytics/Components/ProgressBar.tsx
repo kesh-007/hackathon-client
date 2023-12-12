@@ -44,7 +44,7 @@ function CircularProgressWithLabel(
   );
 }
 
-export default function ProgressBar({progress}) {
+export default function ProgressBar({progress}:{progress:number}) {
   
 
   return <CircularProgressWithLabel value={progress} />;

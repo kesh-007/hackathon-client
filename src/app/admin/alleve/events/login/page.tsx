@@ -22,6 +22,7 @@ const page = () => {
     console.log(data);
   };
 
+
   return (
     <div>
       {/* <div>
