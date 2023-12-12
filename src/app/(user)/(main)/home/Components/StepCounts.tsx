@@ -42,7 +42,7 @@ const StepCounts = () => {
         return () => {
             clearInterval(interval); 
         };
-    }, [token.accestoken, token.refreshtoken]);
+    }, []);
 
     const incrementCounter = (start:number, end:number) => {
         const difference = end - start;

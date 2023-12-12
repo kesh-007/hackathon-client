@@ -35,7 +35,7 @@ export default function Page() {
 
   return (
     
-  <div className="ml-60">
+  <div className="ml-60 flex flex-1 h-screen justify-center">
       <div className="flex flex-col mt-10">
         <div className="flex gap-2 justify-between">
           <div className="flex flex-col gap-6">
@@ -61,21 +61,21 @@ export default function Page() {
           <DataTable />   
         </div>
         </div>
-         <div>
+         <div className="pt-5 flex flex-col justify-between">
             <Card className="flex flex-2 border-2 border-gray-200 rounded bg-grey-100">
               <LineChart
                 width={320}
-                height={280}
+                height={190}
                 series={[{ data: uData, label: "Users" }]}
                 xAxis={[{ scaleType: "point", data: xLabels }]}
               />
             </Card>
-            <div className="mt-4">
+            <div className="mt-2">
             <Calendar 
                 mode="single"
                 selected={date}
                 onSelect={setDate}
-                className="rounded-md border pl-7 "
+                className="rounded-md border pl-7"
                 />
                 </div>
             </div>

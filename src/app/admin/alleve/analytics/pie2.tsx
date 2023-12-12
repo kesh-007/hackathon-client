@@ -8,20 +8,12 @@ import {
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"
-export default function Pie2() {
+export default function Pie2({data}) {
   return (
-    <Card className='border-gray-300 border-2 '>
+    <Card className='border-gray-200 border '>
       <CardHeader className='text-center font-semibold text-lg'>Contest Participant Ratio </CardHeader>
     <PieChart 
-      series={[
-        {
-          data: [
-            { value:650 ,  label: 'Walkathon' },
-            { value:930 , label: 'TresureHunt' },
-            { value:1050 , label: 'PostContest' },
-          ],
-        },
-      ]}
+      series={data}
       width={370}
       height={200}
     />

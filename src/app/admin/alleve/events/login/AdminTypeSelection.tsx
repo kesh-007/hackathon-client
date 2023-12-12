@@ -15,17 +15,11 @@ export function AdminTypeSelection() {
   return (
     <Select>
       <SelectTrigger className="w-full">
-        <SelectValue placeholder="Select a timezone" />
+        <SelectValue placeholder="Type"/>
       </SelectTrigger>
       <SelectContent className="w-full">
-          <SelectItem value="msk">Moscow Time (MSK)</SelectItem>
-          <SelectItem value="ist">India Standard Time (IST)</SelectItem>
-          <SelectItem value="cst_china">China Standard Time (CST)</SelectItem>
-          <SelectItem value="jst">Japan Standard Time (JST)</SelectItem>
-          <SelectItem value="kst">Korea Standard Time (KST)</SelectItem>
-          <SelectItem value="ist_indonesia">
-            Indonesia Central Standard Time (WITA)
-          </SelectItem>        
+          <SelectItem value="msk">Super Admin</SelectItem>
+          <SelectItem value="ist">Admin</SelectItem>
       </SelectContent>
     </Select>
   )
