@@ -7,7 +7,7 @@ import { FaHeart } from "react-icons/fa";
 
 export default function Home() {
     return (
-      <div className="w-full h-screen flex flex-1 flex-col">
+      <div className="w-full h-screen flex flex-1 flex-col overflow-y-scroll">
         <div className="flex flex-col relative " >
           <div className="absolute top-0 left-0 right-0 bottom-0 ">
             <div className="flex justify-between items-center ml-5 text-white  mt-10">
@@ -35,6 +35,7 @@ export default function Home() {
           </div>
             <img src="https://images.unsplash.com/photo-1465869185982-5a1a7522cbcb?auto=format&fit=crop&w=300&q=80" alt="Loading" className="w-full rounded-b-[3rem]"></img>
         </div>
+        <div className="mb-20 flex flex-col">
           <div className="ml-5 mt-7 flex items-center">
               <img className="w-[3.5rem] h-auto rounded-full" src="https://pxbar.com/wp-content/uploads/2023/08/real-girl-profile-pic.jpg" alt="image description"></img>
               <div className="flex flex-col ml-3 w-[13rem]">
@@ -59,6 +60,7 @@ export default function Home() {
             </div>
             <CiHeart  className="text-black font-light text-2xl ml-[2rem]"/>
           </div>
+        </div>  
 
       </div>
       
