@@ -11,9 +11,7 @@ import {
   import { LineChart } from '@mui/x-charts/LineChart';
 
 
-  export default function Line() {
-    const uData = [300,700,1243,1777,2621,3221];
-    const pData = [20, 398, 800, 1420, 1967,2343];
+  export default function Line({data}) {
 
     const xLabels = [
         'july',
@@ -26,15 +24,12 @@ import {
     ];
   return (
    
-    <Card className='border-gray-300 border-2 '>
+    <Card className='border-gray-200 border '>
       <CardHeader className='text-center font-semibold text-lg'>User count </CardHeader>
     <LineChart
        width={350}
        height={230}
-       series={[
-        { data: pData, label: 'Male',color:'blue' },
-        { data: uData, label: 'Female',color:'red' },
-       ]}
+       series={data}
        xAxis={[{ scaleType: 'point', data: xLabels }]}
      />
      </Card>

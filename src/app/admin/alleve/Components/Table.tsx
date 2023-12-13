@@ -42,7 +42,7 @@ export default function DataTable(){
                         {value.status=="In Progress"?<TableCell className="text-green-600 font-semibold">{value.status}</TableCell>:
                         <TableCell className="text-blue-600 font-semibold">{value.status}</TableCell>}
                         
-              </TableRow>
+                    </TableRow>
                 ))
             }
             </TableBody>

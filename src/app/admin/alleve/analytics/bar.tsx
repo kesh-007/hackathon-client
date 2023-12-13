@@ -1,28 +1,35 @@
-import React from 'react'
-import Link from 'next/link';
-import { BarChart } from '@mui/x-charts/BarChart';
+import React from "react";
+import Link from "next/link";
+import { BarChart } from "@mui/x-charts/BarChart";
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-  } from "@/components/ui/card"
-const Bar = () => {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+const Bar = ({data}) => {
   return (
     <div>
-    <Card className='border-gray-300 border-2'>
-    <CardHeader className='text-center font-semibold text-xl'>Contest participant count </CardHeader>
-    <BarChart
- xAxis={[{ scaleType: 'band', data: ['Walkathon', 'TresureHunt', 'PostContest'] }]}
- series={[{ data: [400, 630, 400], color:'blue',label:'Male'}, { data: [250, 300, 650],color:'red',label:'Female' }]}
- width={500}
- height={290}
-/>
-  </Card>
-  </div>
-  )
-}
+      <Card className="border-gray-200 border">
+        <CardHeader className="text-center font-semibold text-xl">
+          Contest participant count{" "}
+        </CardHeader>
+        <BarChart
+          xAxis={[
+            {
+              scaleType: "band",
+              data: ["Walkathon", "TresureHunt", "PostContest"],
+            },
+          ]}
+          series={data}
+          width={500}
+          height={290}
+        />
+      </Card>
+    </div>
+  );
+};
 
-export default Bar
+export default Bar;

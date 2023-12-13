@@ -79,8 +79,8 @@ const page = () => {
               </select>
             </div>
             {/* <div className="m-3 mb-4 flex flex-col">
-            <label className="mb-2 text-xl font-semibold">Type</label>
-            <AdminTypeSelection/>
+                <label className="mb-2 text-xl font-semibold">Admin Type</label>
+                <AdminTypeSelection/>
             </div> */}
             <div className="flex justify-center mt-3">
               <button
