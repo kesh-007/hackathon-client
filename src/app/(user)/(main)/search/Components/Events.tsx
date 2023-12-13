@@ -2,7 +2,7 @@
 // import { Carousel } from "react-responsive-carousel";
 import EventCarousal from "./EventsCarousal";
 
-export default function Events({title}){
+export default function Events({title}:{title:string}){
 
     return (
         <div className="">

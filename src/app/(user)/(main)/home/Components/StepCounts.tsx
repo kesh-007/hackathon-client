@@ -11,6 +11,7 @@ const StepCounts = () => {
     const prevCountRef = useRef(0);
 
     useEffect(() => {
+        if(!token) return alert("FIrst poi google fit la login panu");
         FetchStepCounts(token.accestoken, token.refreshtoken)
             .then((res) => {
                 const currentCount = res.stepCount;
@@ -42,7 +43,7 @@ const StepCounts = () => {
         return () => {
             clearInterval(interval); 
         };
-    }, [token.accestoken, token.refreshtoken]);
+    }, []);
 
     const incrementCounter = (start:number, end:number) => {
         const difference = end - start;

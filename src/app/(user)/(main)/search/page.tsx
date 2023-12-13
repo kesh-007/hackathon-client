@@ -20,11 +20,10 @@ const page = () => {
         </div>
       </div>
       <div>
-          <Events title={"Walkathon"}/>
+          <Events title={"General"}/>
       </div>
       <div className='overflow-x-hidden mx-5'>
-          <p className='text-2xl'>Others</p>
-            <OtherEvent />
+            <OtherEvent name={"Walkathon"} />
       </div>
     </div>
   )

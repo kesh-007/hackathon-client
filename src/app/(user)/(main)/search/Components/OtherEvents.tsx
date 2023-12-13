@@ -1,54 +1,111 @@
-
+"use client"
 import * as React from "react"
 import Image from "next/image"
 
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import { FetchWalkathon } from "@/api"
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import  Cookies  from 'universal-cookie';
+import { useRouter } from "next/navigation"
+
 
 export interface Artwork {
   artist: string
   art: string
 }
 
-export const works: Artwork[] = [
-  {
-    artist: "Ornella Binni",
-    art: "https://images.unsplash.com/photo-1465869185982-5a1a7522cbcb?auto=format&fit=crop&w=300&q=80",
-  },
-  {
-    artist: "Tom Byrom",
-    art: "https://images.unsplash.com/photo-1548516173-3cabfa4607e9?auto=format&fit=crop&w=300&q=80",
-  },
-  {
-    artist: "Vladimir Malyavko",
-    art: "https://images.unsplash.com/photo-1494337480532-3725c85fd2ab?auto=format&fit=crop&w=300&q=80",
-  },
-]
+export default function OtherEvent({ name }: { name: string }) {
+  const cookies = new Cookies();
+  const token = cookies.get('token');
 
-export default function OtherEvent() {
+  const [data, setData] = React.useState<any>([])
+  const [dataR, setDataR] = React.useState<any>([])
+
+  
+  React.useEffect(() => {
+    FetchWalkathon(token.profile.userID).then((fetchedData: any) => {
+      console.log(fetchedData,"Idaan fetrch ")
+      setData(fetchedData.unregistered)
+      setDataR(fetchedData.registered)
+    })
+  }, [])
+
   return (
-    <ScrollArea className="w-96  whitespace-nowrap rounded-md border">
-      <div className="flex w-max space-x-4 p-4">
-        {works.map((artwork) => (
-          <figure key={artwork.artist} className="shrink-0">
-            <div className="overflow-hidden rounded-md">
-              <Image
-                src={artwork.art}
-                alt={`Photo by ${artwork.artist}`}
-                className="aspect-[3/4] h-fit w-fit object-cover"
-                width={300}
-                height={400}
-              />
-            </div>
-            <figcaption className="pt-2 text-xs text-muted-foreground">
-              Photo by{" "}
-              <span className="font-semibold text-foreground">
-                {artwork.artist}
-              </span>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-      <ScrollBar orientation="horizontal" />
-    </ScrollArea>
+    <div>
+      <MyCard name="Registered" data={dataR}/>
+
+      <MyCard name="New Arrivals" data={data}/>
+    </div>
   )
+}
+
+
+function MyCard({ name, data }: { name: string; data: any }) {
+  const router = useRouter();
+  const [redirectToWalkathon, setRedirectToWalkathon] = React.useState(false);
+
+  const handleRegistration = (slug: string) => {
+    if (redirectToWalkathon) {
+      router.push(`/walkathon/${slug}`);
+    } else {
+      router.push(`/${slug}`);
+    }
+  };
+
+  React.useEffect(() => {
+    const currentTime = new Date().toISOString();
+    data.forEach((event: any) => {
+      if (currentTime >= event.start_date && currentTime <= event.end_date) {
+        setRedirectToWalkathon(true);
+      }
+    });
+  }, [data]);
+
+  return (
+    <>
+      <div className='text-2xl font-bold'>
+        <p>{name}</p>
+      </div>
+      {data.length === 0 && <p className='py-3'>No contest available</p>}
+
+      <ScrollArea className='w-full whitespace-nowrap rounded-md border'>
+        <div className='flex w-max space-x-4 p-4'>
+          {data &&
+            data.map((event: any, index: number) => (
+              <Card key={index}>
+                <CardHeader>
+                  <CardTitle>{event.name}</CardTitle>
+                  <CardDescription>
+                    <div>Start: {event.start_date} </div>
+                    <div>End: {event.end_date}</div>
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p>Prize 1: {event.prize_1}</p>
+                  <p>Prize 2: {event.prize_2}</p>
+                  <p>Prize 3: {event.prize_3}</p>
+                </CardContent>
+                <div className='flex justify-end p-3'>
+                  <Button onClick={() => handleRegistration(event.slug)}>
+                    {name === 'Registered' ? 'Enter' : 'Register'}
+                  </Button>
+                </div>
+                <CardFooter></CardFooter>
+              </Card>
+            ))}
+        </div>
+        <ScrollBar orientation='horizontal' />
+      </ScrollArea>
+    </>
+  );
 }
