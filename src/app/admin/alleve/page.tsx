@@ -64,19 +64,21 @@ export default function Page() {
          <div className="pt-5 flex flex-col justify-between">
             <Card className="flex flex-2 border-2 border-gray-300 rounded bg-grey-100">
               <LineChart
-                width={260}
+                width={300}
                 height={200}
                 series={[{ data: uData, label: "Users" }]}
                 xAxis={[{ scaleType: "point", data: xLabels }]}
               />
             </Card>
-            <div className="mt-2">
+            <div className="mt-2 ">
+              
             <Calendar 
                 mode="single"
                 selected={date}
                 onSelect={setDate}
-                className="rounded-md border-2 border-gray-300 pl-7"
+                className="rounded-md border-2 border-gray-300 pl-7 h-[100%]"
                 />
+                
                 </div>
             </div>
                 
