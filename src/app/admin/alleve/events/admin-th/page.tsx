@@ -17,7 +17,9 @@ function Page() {
   const [loc4, setloc4] = useState("");
   const [dec, setdec] = useState("");
   const [prc, setprc] = useState("");
+  const [gen, setgen] = useState("");
   const [suc, setSuc] = useState(false);
+  const [rec,setrec]=useState(false)
 
   const hassubmit = async (e) => {
     e.preventDefault();
@@ -34,8 +36,21 @@ function Page() {
       loc3,
       loc4,
       dec,
+      gender,
+      
     };
-    const res = await axios.post("/api", dat);
+    const requiredFields = ['name', 'organizer', 'date', 'st', 'et','prc', 'loc1', 'loc2','loc3','loc4', 'dec'];
+    const hasEmptyField = requiredFields.some(field => !dat[field]);
+
+    if (hasEmptyField) {
+      setrec(true);
+
+      setTimeout(() => {
+        setrec(false);
+      }, 3000);
+      return;
+    }
+    const res = await axios.post("/admin/alleve/formdata/api-th", dat);
     if (res.status == 200) {
       setSuc(true);
 
@@ -47,14 +62,9 @@ function Page() {
 
   return (
     <>
-      <div className="flex justify-center">
-        {suc ? (
-          <h1 className="text-center bg-green-500 p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 ">
-            Submitted
-          </h1>
-        ) : (
-          <h1></h1>
-        )}
+      <div className="flex justify-center ">
+      <div className='flex justify-center '>{suc?<h1 className=' ml-[100%] text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Submitted</h1>:<h1></h1>}</div>
+    <div className='flex justify-center '>{rec?<h1 className=' ml-[100%] text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Enter all fields</h1>:<h1></h1>}</div>
       </div>
       <div className="flex gap-2 ">
         {/* <div className="border-2 border-gray-300 flex-2 p-5 rounded m-5 md:mt-10 mt-5  flex flex-col items-center h-[90%] fixed">
@@ -242,12 +252,22 @@ function Page() {
                   ></input>
                 </div>
               </div>
-
+              <div className="flex flex-col space-y-1.5">
+            <label className=' text-lg font-semibold mt-2' htmlFor="framework">Contest Gender Type</label>
+              <select className='bg-gray-200 rounded p-3'  onChange={(e) => {
+                      setgen(e.target.value);
+                    }}
+                  
+              >
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
               <label className="text-xl font-semibold mt-4 ">Description</label>
               <textarea
                 className="p-2 rounded-md bg-gray-200"
                 cols={6}
-                rows={10}
+                rows={6}
                 name="dec"
                 placeholder="Decription"
                 onChange={(e) => {

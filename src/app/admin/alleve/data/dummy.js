@@ -42,7 +42,7 @@ export const DATA = [
         date : "10-12-2023",
         time : "2.00-12.00",
         count : 300,
-        status : "completed"
+        status : "Completed"
     },
     {
         name : "AAA",
