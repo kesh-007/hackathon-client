@@ -30,6 +30,7 @@ export function AdminContestForm() {
     st: "",
     et: "",
     dec: "",
+    gender:"",
     price: "",
   });
 
@@ -89,6 +90,7 @@ export function AdminContestForm() {
                   setIndat({ ...indat, organizer: e.target.value });
                 }}
               />
+
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="name">StartDate</Label>
@@ -140,7 +142,20 @@ export function AdminContestForm() {
                 }}
               />
             </div>
-
+            <div className="flex flex-col space-y-1.5">
+            <Label htmlFor="framework">Contest Gender Type</Label>
+              <Select onChange={(e) => {
+                  setIndat({ ...indat, gender: e.target.value });
+                }}>
+                <SelectTrigger id="framework">
+                  <SelectValue placeholder="Select" />
+                </SelectTrigger>
+                <SelectContent position="popper">
+                  <SelectItem value="next">Male</SelectItem>
+                  <SelectItem value="sveltekit">Female</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
             <label className=" text-lg font-semibold mt-2">Description</label>
             <textarea
               name="dec"
