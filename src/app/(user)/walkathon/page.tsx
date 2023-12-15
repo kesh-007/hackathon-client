@@ -17,7 +17,7 @@ export default function Walkathon() {
         </div> */}
         <NavigationBar/>
         <Graph/> 
-        <ProgressCharts stepsCount={100} weight={65} calories={1024}/>
+        <ProgressCharts/>
         <div className="mx-5 rounded-lg">
           <MapComponent/>
         </div>
