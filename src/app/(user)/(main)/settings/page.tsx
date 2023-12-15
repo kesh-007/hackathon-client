@@ -9,16 +9,16 @@ import { MdOutlinePayments } from "react-icons/md";
 import { GrAnalytics } from "react-icons/gr";
 import { FaRegEye } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
-
+import Link from 'next/link';
 
 
 
 const page = () => {
   return (
     <div className='w-full h-screen flex flex-col overflow-y-scroll mb-8'>
-        <div className='flex items-center mt-8 h-10 px-10 '>
+        <div className='flex items-center mt-8 h-10 px-5 '>
             <MdOutlineDirectionsRun className="text-3xl text-[#f64d41] "/>
-            <p className='flex justify-center flex-1 font-bold text-xl'>Settings</p>
+            <p className='flex justify-center flex-1 font-bold pr-7 text-xl'>Settings</p>
             {/* <MdOutlineDirectionsRun className="text-3xl hidden text-[#f64d41] "/> */}
             
         </div>
@@ -31,7 +31,9 @@ const page = () => {
           </button>
         </div>
         <div className='flex flex-col justify-center my-7 mx-4 '>
-          <div className='flex  items-center justify-between my-4'>
+        <Link href='/analytics'>
+          
+          <div className='flex  items-center justify-between py-4  hover:bg-grey- '>
           <div className="px-2 text-xl text-[#f64d41]">        
                 <GrAnalytics />
           </div>
@@ -39,8 +41,10 @@ const page = () => {
           <div className='ml-3'>
               <MdNavigateNext />
           </div>
+          
+         
           </div>
-
+          </Link>
           <div className='flex  items-center justify-between my-4'>
           <div className="px-2 text-xl text-[#f64d41]">        
               <FaRegEye />
