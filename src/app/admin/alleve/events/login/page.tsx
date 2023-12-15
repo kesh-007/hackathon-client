@@ -43,7 +43,7 @@ const page = () => {
 
 
   return (
-    <div className="h-screen flex justify-center mt-4">
+    <div className="h-screen flex justify-center items-center">
       
         
         <div>{suc?<h1 className=' text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0 w-1/4  '>Submitted</h1>:<h1></h1>}</div>

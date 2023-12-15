@@ -7,7 +7,7 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table";
-
+import Link from 'next/link';
 import {DATA} from "../data/dummy";
 
 export default function DataTable(){
@@ -26,13 +26,19 @@ export default function DataTable(){
                             {value}
                         </TableHead>
                     ))
+                    
                 }
+                <TableHead className="text-md font-semibold bg-gray-100 ">Link</TableHead>
               </TableRow>
+
             </TableHeader>
             <TableBody>
             {
                 DATA.map((value , index) => (
+                    // eslint-disable-next-line react/jsx-key
+                    
                     <TableRow key={index}>
+                        
                         <TableCell>{value.type}</TableCell>
                         <TableCell className="font-medium">{value.name}</TableCell>
                         <TableCell>{value.organizer}</TableCell>
@@ -41,8 +47,9 @@ export default function DataTable(){
                         <TableCell>{value.count}</TableCell>
                         {value.status=="In Progress"?<TableCell className="text-green-600 font-semibold">{value.status}</TableCell>:
                         <TableCell className="text-blue-600 font-semibold">{value.status}</TableCell>}
-                        
+                        <TableCell><Link className="p-1 text-white bg-black rounded" href={"/admin/alleve/"+value.name}>Stats</Link></TableCell>
                     </TableRow>
+                    
                 ))
             }
             </TableBody>

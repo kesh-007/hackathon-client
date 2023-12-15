@@ -17,6 +17,7 @@ function Page() {
   const [rec,setrec]=useState(false)
   const [indat,setIndat]=useState({
     ct:'Walkathon',
+    formid:"WK" + Math.random().toString(16).slice(2)+Date().toLocaleString().trim(),
     WalkathonName:'',
     organizer:'',
     date:'',
@@ -62,7 +63,7 @@ function Page() {
       <div className='flex justify-center '>{suc ? <h1 className=' text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Submitted</h1> : <h1></h1>}</div>
       <div className='flex justify-center '>{rec ? <h1 className=' text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Enter all fields</h1> : <h1></h1>}</div>
       
-      <div className='flex flex-col items-center  gap-4 mt-10 mb-5'>
+      <div className='flex flex-col items-center justify-center  gap-4 mt-10 mb-5'>
         <h1 className=' font-bold text-4xl text-center '>Add Walkathon Contest</h1>
         <div className=' p-5 border-2 border-gray-300 rounded w-[50%]'>
           <form className='flex flex-col gap-2 overflow-y-hidden '>

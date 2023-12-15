@@ -25,6 +25,7 @@ function Page() {
     e.preventDefault();
     const dat = {
       ct: "TreasureHunt",
+      formid:"TH" + Math.random().toString(16).slice(2)+Date().toLocaleString().trim(),
       name,
       organizer,
       date,

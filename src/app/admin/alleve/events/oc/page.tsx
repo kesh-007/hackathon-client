@@ -30,6 +30,7 @@ function Page() {
 
   const [indat,setIndat]=useState({
     ct:'',
+    formid:"OC" + Math.random().toString(16).slice(2)+Date().toLocaleString().trim(),
     conName:'',
     organizer:'',
     sdate:'',
@@ -74,8 +75,8 @@ function Page() {
   return <>
   <div className='mt-5 flex justify-center'>
    
-    <div className='flex justify-center '>{suc?<h1 className=' ml-[100%] text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Submitted</h1>:<h1></h1>}</div>
-    <div className='flex justify-center '>{rec?<h1 className=' ml-[100%] text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Enter all fields</h1>:<h1></h1>}</div>
+    <div className='flex justify-center '>{suc?<h1 className=' text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Submitted</h1>:<h1></h1>}</div>
+    <div className='flex justify-center '>{rec?<h1 className=' text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Enter all fields</h1>:<h1></h1>}</div>
       
     </div>
     <div className=' mt-10'>
@@ -181,6 +182,7 @@ function Page() {
                   setIndat({ ...indat, gender: e.target.value });
                   
                 }} >
+                  <option value="common">Common</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
