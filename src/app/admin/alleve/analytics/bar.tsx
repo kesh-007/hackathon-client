@@ -24,7 +24,7 @@ const Bar = ({data}) => {
             },
           ]}
           series={data}
-          width={500}
+          width={400}
           height={290}
         />
       </Card>

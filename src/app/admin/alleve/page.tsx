@@ -35,10 +35,10 @@ export default function Page() {
 
   return (
     
-  <div className="ml-[17%] flex flex-1 h-screen justify-center">
-      <div className="flex flex-col mt-10">
-        <div className="flex gap-2 justify-between">
-          <div className="flex flex-col gap-6">
+  <div className=" flex justify-center  ">
+      <div className="flex flex-col justify-center mt-10 ">
+    <div className="flex gap-2  ">
+      <div className="flex flex-col gap-4">
           <div className="flex gap-2 mt-5">
           <EventCard 
               title={"Users"}
@@ -56,13 +56,13 @@ export default function Page() {
               title={"Others"}
               childern = {<Link href='/admin/alleve/events/oc'><Button className="w-full">Add</Button></Link>}
           />
+        </div>
+        <div className=" border-2 rounded">
+          <DataTable  />   
+        </div>
       </div>
-         <div className=" border-2 rounded">
-          <DataTable />   
-        </div>
-        </div>
-         <div className="pt-5 flex flex-col justify-between">
-            <Card className="flex flex-2 border-2 border-gray-300 rounded bg-grey-100">
+        <div className="pt-5 flex flex-col gap-4">
+            <Card className=" border-2 border-gray-300 rounded bg-grey-100 ">
               <LineChart
                 width={300}
                 height={200}
@@ -70,70 +70,19 @@ export default function Page() {
                 xAxis={[{ scaleType: "point", data: xLabels }]}
               />
             </Card>
-            <div className="mt-2 ">
-              
+            <div>
+           <div >  
             <Calendar 
                 mode="single"
                 selected={date}
                 onSelect={setDate}
-                className="rounded-md border-2 border-gray-300 pl-7 h-[100%]"
+                className="rounded-md border-2 border-gray-300 pl-7 "
                 />
-                
+               </div>  
                 </div>
             </div>
                 
-          {/* <div className="flex-1">
-            <Card className="h-[100%]">
-              <CardHeader>
-                <CardTitle className="text-xl">Users</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-2xl bg-black p-1 text-white text-center rounded mt-3">
-                  3221
-                </p>
-              </CardContent>
-            </Card>
-          </div> */}
-          {/* <div className="flex-1"> */}
-            {/* <Card className="h-[100%] ">
-              <CardHeader>
-                <CardTitle className="text-xl">Walkathon</CardTitle>
-              </CardHeader>
-              <CardFooter>
-                
-              </CardFooter>
-            </Card> */}
-          {/* </div> */}
-          {/* <div className="flex-1"> */}
-            {/* <Card className="h-[100%]">
-              <CardHeader>
-                <CardTitle className="text-xl">Other Contest</CardTitle>
-              </CardHeader>
-              <CardFooter>
-                <Link
-                  className="bg-black p-2 mt-3 pl-4 pr-4  text-white rounded"
-                  href="alleve/events/oc"
-                >
-                  Add
-                </Link>
-              </CardFooter>
-            </Card> */}
-          {/* </div> */}
-          {/* <div className="flex-1"> */}
-            {/* <Card className="h-[100%]">
-              <CardHeader>
-                <CardTitle className="text-xl">TreasureHunt</CardTitle>
-              </CardHeader>
-              <CardFooter>
-                <Link
-                  className="bg-black p-2 mt-3 pl-4 pr-4 text-white rounded"
-                  href="alleve/events/wtn"
-                >
-                  Add
-                </Link>
-              </CardFooter>
-            </Card> */}
-          {/* </div> */}
+         
         </div>
         
         

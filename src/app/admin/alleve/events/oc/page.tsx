@@ -72,22 +72,22 @@ function Page() {
   };
   
   return <>
-  <div className='mt-5'>
-    <Link className='bg-black text-white p-3 m-5  rounded-md '  href="/alleve">Back</Link>
+  <div className='mt-5 flex justify-center'>
+   
     <div className='flex justify-center '>{suc?<h1 className=' ml-[100%] text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Submitted</h1>:<h1></h1>}</div>
     <div className='flex justify-center '>{rec?<h1 className=' ml-[100%] text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Enter all fields</h1>:<h1></h1>}</div>
       
     </div>
-    <div className='ml-[30%] mt-10'>
+    <div className=' mt-10'>
     
-  <div className=' mt-5 rounded '>
-  <Card className="w-[250%] overflow-scroll">
+  <div className=' mt-5 rounded flex justify-center mb-10'>
+  <Card className="w-[50%]">
       <CardHeader>
         <CardTitle className="text-center">Create Context</CardTitle>
         {/* <CardDescription>Deploy your new project in one-click.</CardDescription> */}
       </CardHeader>
       <CardContent>
-        <form>
+        <form >
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="framework">Contest Type</Label>
