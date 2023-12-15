@@ -131,3 +131,25 @@ export const AlreadyEnrollments = async(userid:string,gameid:string) => {
   }
 
 }
+
+export const PostUserDetail=async(user_id: string,user_name: string,age: number, gender: string, img_url: string, name: string,step_count:any) => {
+
+  try {
+    const response = await fetch(`${url}/users/insert`, {
+      method: "POST",
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({ user_id,user_name,age, gender, img_url, name,step_count })
+    });
+
+
+    if (!response.ok) {
+      throw new Error('Network Error');
+    }
+    return response;
+
+  }
+    catch(err) {
+
+      console.log(err);
+    }
+}

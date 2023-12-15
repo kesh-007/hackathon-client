@@ -44,7 +44,7 @@ export default function OtherEvent({ name }: { name: string }) {
     <div>
       <MyCard name="Registered" data={dataR}/>
 
-      <MyCard name="New Arrivals" data={data}/>
+      <MyCardR name="New Arrivals" data={data}/>
     </div>
   )
 }
@@ -55,11 +55,69 @@ function MyCard({ name, data }: { name: string; data: any }) {
   const [redirectToWalkathon, setRedirectToWalkathon] = React.useState(false);
 
   const handleRegistration = (slug: string) => {
-    if (redirectToWalkathon) {
-      router.push(`/walkathon/${slug}`);
-    } else {
+    
+      
+      router.push(`walkathon/${slug}`);
+    
+  };
+
+  React.useEffect(() => {
+    const currentTime = new Date().toISOString();
+    data.forEach((event: any) => {
+      if (currentTime >= event.start_date && currentTime <= event.end_date) {
+        setRedirectToWalkathon(true);
+      }
+    });
+  }, [data]);
+
+  return (
+    <>
+      <div className='text-2xl font-bold'>
+        <p>{name}</p>
+      </div>
+      {data.length === 0 && <p className='py-3'>No contest available</p>}
+
+      <ScrollArea className='w-full whitespace-nowrap rounded-md border'>
+        <div className='flex w-max space-x-4 p-4'>
+          {data &&
+            data.map((event: any, index: number) => (
+              <Card key={index}>
+                <CardHeader>
+                  <CardTitle>{event.name}</CardTitle>
+                  <CardDescription>
+                    <div>Start: {event.start_date} </div>
+                    <div>End: {event.end_date}</div>
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p>Prize 1: {event.prize_1}</p>
+                  <p>Prize 2: {event.prize_2}</p>
+                  <p>Prize 3: {event.prize_3}</p>
+                </CardContent>
+                <div className='flex justify-end p-3'>
+                  <Button onClick={() => handleRegistration(event.slug)}>
+                    {name === 'Registered' ? 'Enter' : 'Register'}
+                  </Button>
+                </div>
+                <CardFooter></CardFooter>
+              </Card>
+            ))}
+        </div>
+        <ScrollBar orientation='horizontal' />
+      </ScrollArea>
+    </>
+  );
+}
+
+
+function MyCardR({ name, data }: { name: string; data: any }) {
+  const router = useRouter();
+  const [redirectToWalkathon, setRedirectToWalkathon] = React.useState(false);
+
+  const handleRegistration = (slug: string) => {
+
       router.push(`/${slug}`);
-    }
+    
   };
 
   React.useEffect(() => {

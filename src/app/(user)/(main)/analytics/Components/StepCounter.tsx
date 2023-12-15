@@ -1,5 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
+import  Cookies  from 'universal-cookie';
+
 
 const StepCounter = () => {
     const [stepCount,setStepCounts] = useState(localStorage.getItem('stepCount'));
