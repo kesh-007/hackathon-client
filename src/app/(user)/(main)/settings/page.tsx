@@ -34,7 +34,6 @@ const page = () => {
         <Link href='/analytics'>
           
           <div className='flex  items-center justify-between py-4  hover:bg-grey- '>
-            
           <div className="px-2 text-xl text-[#f64d41]">        
                 <GrAnalytics />
           </div>
@@ -43,9 +42,9 @@ const page = () => {
               <MdNavigateNext />
           </div>
           
+         
           </div>
           </Link>
-
           <div className='flex  items-center justify-between my-4'>
           <div className="px-2 text-xl text-[#f64d41]">        
               <FaRegEye />
