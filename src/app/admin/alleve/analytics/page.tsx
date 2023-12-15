@@ -48,7 +48,7 @@ function page() {
 
   return (
     <div className="flex h-screen w-full justify-center items-center">
-      <div className=" flex gap-2 ml-64 ">
+      <div className=" flex gap-2">
         <div>
           <div className="mb-3">
             <Bar data={participant_count_data}/>

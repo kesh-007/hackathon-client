@@ -43,19 +43,19 @@ const page = () => {
 
 
   return (
-    <div>
-   <div>
-    
-    <div className='flex justify-center '>{suc?<h1 className=' ml-[60%] text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Submitted</h1>:<h1></h1>}</div>
-    <div className='flex justify-center '>{rec?<h1 className=' ml-[60%] text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Enter all fields</h1>:<h1></h1>}</div>
-    </div>
+    <div className="h-screen flex justify-center items-center">
+      
+        
+        <div>{suc?<h1 className=' text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0 w-1/4  '>Submitted</h1>:<h1></h1>}</div>
+        <div>{rec?<h1 className=' text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0 w-1/4  '>Enter all fields</h1>:<h1></h1>}</div>
+     
 
-    <div  className="flex flex-col ml-60 w-[100%]">
+    <div  className="flex flex-col  items-center gap-4 ">
 
-         <h1 className=" text-4xl font-semibold mt-[10%] ml-[57%]">Add Admin</h1>
-        <div className=" flex border-2 border-gray-300 rounded  mt-5 ml-80 justify-center w-[60%]  ">
+         <h1 className=" text-4xl font-semibold">Add Admin</h1>
+        <div className=" flex border-2 border-gray-300 rounded w-[150%]  ">
          
-          <form className="flex flex-col p-5 w-[85%]">
+          <form className="flex flex-col p-5 w-[150%]">
             <div className="m-3 mb-4 flex flex-col">
               <label className="mb-2 text-xl font-semibold">Name</label>
               <input
@@ -91,7 +91,7 @@ const page = () => {
             </div>
             <div className="m-3 mb-4 flex flex-col">
               <label className="mb-2 text-xl font-semibold">Admin Type</label>
-              <select className='bg-gray-300 rounded p-2' onChange={(e) => {
+              <select className='bg-gray-200 rounded p-2' onChange={(e) => {
                   setData({ ...dat, adminType: e.target.value });
                   
                 }} >
@@ -115,6 +115,8 @@ const page = () => {
         </div>
       </div>
       </div>
+    
+
   );
 };
 

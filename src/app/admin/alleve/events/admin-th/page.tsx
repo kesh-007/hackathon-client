@@ -25,6 +25,7 @@ function Page() {
     e.preventDefault();
     const dat = {
       ct: "TreasureHunt",
+      formid:"TH" + Math.random().toString(16).slice(2)+Date().toLocaleString().trim(),
       name,
       organizer,
       date,
@@ -36,7 +37,7 @@ function Page() {
       loc3,
       loc4,
       dec,
-      gender,
+      gen,
       
     };
     const requiredFields = ['name', 'organizer', 'date', 'st', 'et','prc', 'loc1', 'loc2','loc3','loc4', 'dec'];
@@ -63,10 +64,10 @@ function Page() {
   return (
     <>
       <div className="flex justify-center ">
-      <div className='flex justify-center '>{suc?<h1 className=' ml-[100%] text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Submitted</h1>:<h1></h1>}</div>
-    <div className='flex justify-center '>{rec?<h1 className=' ml-[100%] text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Enter all fields</h1>:<h1></h1>}</div>
+      <div className='flex justify-center '>{suc?<h1 className='  text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Submitted</h1>:<h1></h1>}</div>
+    <div className='flex justify-center '>{rec?<h1 className=' text-center bg-black text-white p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Enter all fields</h1>:<h1></h1>}</div>
       </div>
-      <div className="flex gap-2 ">
+      <div className="flex gap-2 justify-center">
         {/* <div className="border-2 border-gray-300 flex-2 p-5 rounded m-5 md:mt-10 mt-5  flex flex-col items-center h-[90%] fixed">
           <h1 className="text-2xl font-bold mt-5 border-b-2 pb-4">Fitadmin</h1>
           <ol className="mt-10">
@@ -88,13 +89,15 @@ function Page() {
           <h1 className="text-md  mb-5">Admin Name</h1>
         </div> */}
 
-        <div className="ml-96 flex flex-col items-center ">
+        <div className=" flex flex-col items-center gap-4 ">
           <h1 className="text-center font-bold text-4xl mt-10 ">
             Add TreasureHunt Contest
           </h1>
 
-          <div className=" md:p-10 p-5 lg:ml-40 lg:mr-40  md:m-10 border-2 border-gray-200 rounded-md w-[100%]">
-            <form className="flex flex-col gap-2 ">
+          <div className=" md:p-10 p-5 border-2 border-gray-200 rounded-md sm:w-[150%] w-[100%]">
+
+
+            <form className="flex flex-col gap-2">
               <div className="flex flex-col gap-3 justify-center sm:flex-row ">
                 <div className="flex flex-col sm:w-1/2 ">
                   <label
@@ -257,8 +260,8 @@ function Page() {
               <select className='bg-gray-200 rounded p-3'  onChange={(e) => {
                       setgen(e.target.value);
                     }}
-                  
               >
+                  <option value="common">Common</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>

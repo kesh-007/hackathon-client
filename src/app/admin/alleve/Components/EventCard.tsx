@@ -22,7 +22,7 @@ import { Label } from "@/components/ui/label"
 
 export function EventCard(props) {
   return (
-    <Card className="w-[14.5rem] bg-gray-100 border-2 border-gray-300 h-[12rem] flex flex-col justify-between">
+    <Card className="xl:w-[14.5rem] w-[12rem] bg-gray-100 border-2 border-gray-300 xl:h-[12rem] h-[10rem] flex flex-col justify-between">
       <CardHeader>
         <CardTitle>{props.title}</CardTitle>
         {/* <CardDescription>Deploy your new project in one-click.</CardDescription> */}
