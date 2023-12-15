@@ -25,6 +25,7 @@ const page = () => {
 
                 <div className="flex items-center my-4 py-1 px-[3rem] border rounded-lg ">
                     <MdOutlineCheckBox className="font-bold text-xl" />
+                    
                     <p className="px-7"> Discounts on Paid Contests</p>
                 </div>
 
