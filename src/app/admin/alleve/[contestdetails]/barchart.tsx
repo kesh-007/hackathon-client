@@ -25,7 +25,7 @@ const Barchart1 = ({data}) => {
           ]}
           series={data}
           width={350}
-          height={240}
+          height={205}
         />
       </Card>
   )

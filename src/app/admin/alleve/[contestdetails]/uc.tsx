@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card"
 const Usercount = ({data}) => {
   return (
-    <div>
+    <div className='w-[100%]'>
       <Card className='bg-gray-100  border-2 border-gray-300 rounded'>
         <CardHeader className='text-2xl font-bold '>Participant Count</CardHeader>
         <CardFooter>
