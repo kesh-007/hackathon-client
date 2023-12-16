@@ -7,16 +7,17 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table";
+  import { ScrollArea } from "@/components/ui/scroll-area"
 import Link from 'next/link';
 import {DATA} from "../data/dummy";
 
 export default function DataTable(){
 
-    const table_heading = ["Contest Type" , "Contest Name" , "Organizer" , "Date","Timing","Participatent Count","Status"];
+    const table_heading = ["Contest Type" , "Contest Name" , "Organizer" , "Date","Timing","Gender","Participatent Count","Status"];
 
     return (
-      
-        <Table className="overflow-scroll w-[100%] ">
+        <ScrollArea className="h-[23rem] w-[100%] rounded-md border p-4">
+        <Table className="overflow-scroll  ">
             {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
             <TableHeader>
               <TableRow>
@@ -39,14 +40,15 @@ export default function DataTable(){
                     
                     <TableRow key={index}>
                         
-                        <TableCell>{value.type}</TableCell>
-                        <TableCell className="font-medium">{value.name}</TableCell>
-                        <TableCell>{value.organizer}</TableCell>
-                        <TableCell>{value.date}</TableCell>
-                        <TableCell>{value.time}</TableCell>
-                        <TableCell>{value.count}</TableCell>
-                        {value.status=="In Progress"?<TableCell className="text-green-600 font-semibold">{value.status}</TableCell>:
-                        <TableCell className="text-blue-600 font-semibold">{value.status}</TableCell>}
+                        <TableCell className="text-center">{value.type}</TableCell>
+                        <TableCell className="font-medium text-center">{value.name}</TableCell>
+                        <TableCell className="text-center">{value.organizer}</TableCell>
+                        <TableCell className="text-center">{value.date}</TableCell>
+                        <TableCell className="text-center">{value.time}</TableCell>
+                        <TableCell className="text-center">{value.contestgender}</TableCell>
+                        <TableCell className="text-center" >{value.count}</TableCell>
+                        {value.status=="In Progress"?<TableCell className="text-green-600 font-semibold text-center">{value.status}</TableCell>:
+                        <TableCell className="text-blue-600 font-semibold text-center">{value.status}</TableCell>}
                         <TableCell><Link className="p-1 text-white bg-black rounded" href={"/admin/alleve/"+value.name}>Stats</Link></TableCell>
                     </TableRow>
                     
@@ -54,7 +56,7 @@ export default function DataTable(){
             }
             </TableBody>
           </Table>
-         
+          </ScrollArea>
     );
 
 }

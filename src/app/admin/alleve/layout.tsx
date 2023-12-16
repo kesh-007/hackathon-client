@@ -41,6 +41,14 @@ export default function AdminLayout({ children }) {
               </div>
             </li>
           </Link>
+          <Link href="/admin/alleve/analytics">
+            <li className="text-lg font-medium md:mt-6  mt-4  bg-black text-gray-400 hover:text-white hover:bg-gray-900 p-2  rounded">
+              <div className="flex gap-5">
+                <GrAnalytics className="text-2xl text-center" />
+                Analytics
+              </div>
+            </li>
+          </Link>
           <Link href="/admin/alleve/events/login">
             {" "}
             <li className="text-lg font-medium md:mt-6  mt-4  bg-black text-gray-400 hover:text-white hover:bg-gray-900 p-2  rounded">
@@ -59,14 +67,7 @@ export default function AdminLayout({ children }) {
               </div>
             </li>
           </Link>
-          <Link href="/admin/alleve/analytics">
-            <li className="text-lg font-medium md:mt-6  mt-4  bg-black text-gray-400 hover:text-white hover:bg-gray-900 p-2  rounded">
-              <div className="flex gap-5">
-                <GrAnalytics className="text-2xl text-center" />
-                Analytics
-              </div>
-            </li>
-          </Link>
+          
         </ol>
       </SheetDescription>
     </SheetHeader>

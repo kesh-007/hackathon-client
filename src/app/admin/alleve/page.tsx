@@ -39,7 +39,7 @@ export default function Page() {
       <div className="flex flex-col justify-center mt-10 ">
     <div className="flex gap-2  ">
       <div className="flex flex-col gap-4">
-          <div className="flex gap-2 mt-5">
+          <div className="flex gap-4 mt-5 justify-center">
           <EventCard 
               title={"Users"}
               childern = {<Button className="w-full">3221</Button>}
@@ -57,7 +57,7 @@ export default function Page() {
               childern = {<Link href='/admin/alleve/events/oc'><Button className="w-full">Add</Button></Link>}
           />
         </div>
-        <div className=" border-2 rounded">
+        <div >
           <DataTable  />   
         </div>
       </div>
