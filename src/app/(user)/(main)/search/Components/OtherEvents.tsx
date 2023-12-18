@@ -41,8 +41,9 @@ export default function OtherEvent({ name }: { name: string }) {
   }, [])
 
   return (
-    <div>
+    <div className="mt-8">
       <MyCard name="Registered" data={dataR}/>
+      <div className="h-4"/>
 
       <MyCardR name="New Arrivals" data={data}/>
     </div>
@@ -72,34 +73,32 @@ function MyCard({ name, data }: { name: string; data: any }) {
 
   return (
     <>
-      <div className='text-2xl font-bold'>
-        <p>{name}</p>
+  <div className='text-2xl  text-center font-bold'>
+        <p className="mb-4">{name}</p>
       </div>
       {data.length === 0 && <p className='py-3'>No contest available</p>}
 
       <ScrollArea className='w-full whitespace-nowrap rounded-md border'>
-        <div className='flex w-max space-x-4 p-4'>
+        <div className='flex   space-x-4 '>
           {data &&
             data.map((event: any, index: number) => (
-              <Card key={index}>
+              <Card key={index} className="w-full mx-3"> 
                 <CardHeader>
                   <CardTitle>{event.name}</CardTitle>
-                  <CardDescription>
-                    <div>Start: {event.start_date} </div>
+                  <CardDescription >
+                    <div className="mt-2">Start: {event.start_date} </div>
                     <div>End: {event.end_date}</div>
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p>Prize 1: {event.prize_1}</p>
-                  <p>Prize 2: {event.prize_2}</p>
-                  <p>Prize 3: {event.prize_3}</p>
-                </CardContent>
-                <div className='flex justify-end p-3'>
+                  <p className="text-lg font-bold">Prices upto: {event.prize_1} INR </p>
+                <div className='flex justify-end p-1'>
                   <Button onClick={() => handleRegistration(event.slug)}>
                     {name === 'Registered' ? 'Enter' : 'Register'}
                   </Button>
                 </div>
-                <CardFooter></CardFooter>
+                </CardContent>
+
               </Card>
             ))}
         </div>
@@ -131,39 +130,37 @@ function MyCardR({ name, data }: { name: string; data: any }) {
 
   return (
     <>
-      <div className='text-2xl font-bold'>
-        <p>{name}</p>
+     <div className='text-2xl  text-center font-bold'>
+        <p className="mb-4">{name}</p>
       </div>
       {data.length === 0 && <p className='py-3'>No contest available</p>}
 
       <ScrollArea className='w-full whitespace-nowrap rounded-md border'>
-        <div className='flex w-max space-x-4 p-4'>
+        <div className='flex   space-x-4 '>
           {data &&
             data.map((event: any, index: number) => (
-              <Card key={index}>
+              <Card key={index} className="w-full mx-3"> 
                 <CardHeader>
                   <CardTitle>{event.name}</CardTitle>
-                  <CardDescription>
-                    <div>Start: {event.start_date} </div>
+                  <CardDescription >
+                    <div className="mt-2">Start: {event.start_date} </div>
                     <div>End: {event.end_date}</div>
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p>Prize 1: {event.prize_1}</p>
-                  <p>Prize 2: {event.prize_2}</p>
-                  <p>Prize 3: {event.prize_3}</p>
-                </CardContent>
-                <div className='flex justify-end p-3'>
+                <p className="text-lg font-bold">Prices upto: {event.prize_1} INR</p>
+                <div className='flex justify-end p-1'>
                   <Button onClick={() => handleRegistration(event.slug)}>
                     {name === 'Registered' ? 'Enter' : 'Register'}
                   </Button>
                 </div>
-                <CardFooter></CardFooter>
+                </CardContent>
+
               </Card>
             ))}
         </div>
         <ScrollBar orientation='horizontal' />
       </ScrollArea>
-    </>
+      </>
   );
 }

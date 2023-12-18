@@ -11,7 +11,7 @@ const StepCounts = () => {
     const prevCountRef = useRef(0);
 
     useEffect(() => {
-        if(!token) return alert("FIrst poi google fit la login panu");
+        if(!token) return alert("Login with no token error");
         FetchStepCounts(token.accestoken, token.refreshtoken)
             .then((res) => {
                 const currentCount = res.stepCount;

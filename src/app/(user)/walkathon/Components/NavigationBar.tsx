@@ -19,6 +19,7 @@ export default function NavigationBar({name,style}:{name:string,style:string}){
     console.log(name,"Name of the test")
     const [stepcount,setStepcount] = useState(localStorage.getItem('stepCount')||0);
     const [token,SetToken] = useState({})
+    const [record,toRecord] = useState(true)
 
     console.log(localStorage.getItem('stepCount'),"Step Count")
     useEffect(()=>{
@@ -29,7 +30,10 @@ export default function NavigationBar({name,style}:{name:string,style:string}){
         const token = cookies.get('token');
         SetToken(token);
 
-        InsertData(token.profile.userID,token.profile.displayName,token.profile.profilePhotoUrl)
+   if (record)     {
+    InsertData(token.profile.userID,token.profile.displayName,token.profile.profilePhotoUrl)
+    toRecord(false)
+}
 
 
       },[])
@@ -56,6 +60,7 @@ export default function NavigationBar({name,style}:{name:string,style:string}){
 
 
         </div>
+
         </div>
     );
 

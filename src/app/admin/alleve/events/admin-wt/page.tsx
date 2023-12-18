@@ -1,100 +1,153 @@
-'use client';
-import React from 'react'
-import axios from 'axios';
-import { useState } from 'react';
-import Link from 'next/link'
+"use client"
+import React, { useState } from 'react';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { ScheduleWalkathonApi } from '@/api';
 
+const Page = () => {
+  const [formData, setFormData] = useState({
+    name:"",
+    prize_1:0,
+    prize_2:0,
+    prize_3:0,
+    rules:"",
+    base_fare:0,
+    start_date:new Date(),
+    end_date:new Date()
+});
 
-function Page() {
-  // const [name,setname]=useState('')
-  // const [organizer,setorganizer]=useState('')
-  // const [date,setdate]=useState('')
-  // const [st,setst]=useState('')
-  // const [et,setet]=useState('')
-  // const [loc,setloc]=useState('')
-  // const [dec,setdec]=useState('')
-  const [suc,setSuc]=useState(false)
-  const [indat,setIndat]=useState({
-    ct:'yoga',
-    YogaconName:'',
-    organizer:'',
-    date:'',
-    st:'',
-    et:'',
-    sloc:'',
-    eloc:'',
-    dec:'',
-    price:0,
-  }) 
-
-
-  const hassubmit = async (e) => {
-    e.preventDefault(); 
-    const res= await axios.post('/api',indat)
-  if(res.status==200){
-    setSuc(true)
-    
-    setTimeout(()=>{setSuc(false); },3000)
-    
-    
-  }
+  const handleInputChange = (e:any) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
-  
-  return <>
-  <div className='mt-5'>
-    <Link className='bg-black text-white p-3 m-5  rounded-md  '  href="/alleve">Back</Link>
-    <div className='flex justify-center'>{suc?<h1 className='text-center bg-green-500 p-3 text-2xl font-semibold rounded fixed top-0   sm:w-1/3 w-1/2 '>Submitted</h1>:<h1></h1>}</div>
-    </div>
-    <div className='ml-96'>
-    <h1 className='ml-40 font-bold text-4xl mt-20 '>Add Walkathon Contest</h1>
-  <div className=' md:p-10 p-5   md:m-10 m-5 border-2 border-gray-300 rounded w-[110%] '>
-    <form className='flex flex-col gap-2' >
+
+  const handleTimestampChange = (e:any) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const ScheduleWalkathon = async() => {
+    ScheduleWalkathonApi(formData).then((res:any) => {
+      console.log(res,"idula ena iruku")
+
+    })
+
+  }
+
+
+  return (
+    <div className="border border-gray-200 p-4 rounded-md">
+      <div className="flex gap-5">
+        <div>
+          <Label htmlFor="name">Name</Label>
+          <Input
+            id="name"
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            className="w-[300px]"
+          />
+        </div>
+        <div>
+          <Label htmlFor="base_fare">Base Fare</Label>
+          <Input
+            id="base_fare"
+            type="number"
+            name="base_fare"
+            value={formData.base_fare}
+            onChange={handleInputChange}
+            className="w-[300px]"
+          />
+        </div>
+      </div>
+      <div>
+          <Label htmlFor="rules">Rules</Label>
+          <Input
+            id="rules"
+            type="text"
+            name="rules"
+            value={formData.rules}
+            onChange={handleInputChange}
+            className="w-full"
+          />
+        </div>
+
+        <div className='flex gap-3 mt-2'>
+        <div>
+          <Label htmlFor="prize_1">Prize 1</Label>
+          <Input
+            id="prize_1"
+            type="number"
+            name="prize_1"
+            value={formData.prize_1}
+            onChange={handleInputChange}
+            className="w-[300px]"
+          />
+        </div>
+        <div>
+          <Label htmlFor="prize_2">Prize 2</Label>
+          <Input
+            id="prize_2"
+            type="number"
+            name="prize_2"
+            value={formData.prize_2}
+            onChange={handleInputChange}
+            className="w-[300px]"
+          />
+        </div>
+        <div>
+          <Label htmlFor="prize_3">Prize 3</Label>
+          <Input
+            id="prize_3"
+            type="number"
+            name="prize_3"
+            value={formData.prize_3}
+            onChange={handleInputChange}
+            className="w-[300px]"
+          />
+        </div>
+
+
+        
+
+        </div>
+        <div className='flex justify-between  mt-3'>
+          <div>
+        <Label htmlFor="start_date">Start Date</Label>
+        <Input
+          type="datetime-local"
+          id="start_date"
+          name="start_date"
+          onChange={handleTimestampChange}
+        />
+        </div>
+<div>
      
-    <label  className=' text-lg font-semibold mt-2'  htmlFor="name">Walkathon Name</label>
-    <input className='p-2 bg-gray-300 rounded-md' type="text" id="username" name="name" onChange={(e)=>{
-          setIndat({...indat,YogaconName:e.target.value})
-    }}></input>
-  
-    <label  className=' text-lg font-semibold mt-2' htmlFor="organizer">Organizer</label>
-    <input className='p-2 bg-gray-300 rounded-md' type="text" id="organizer" name="organizer" onChange={(e)=>{
-          setIndat({...indat,organizer:e.target.value})}}></input>
+        <Label htmlFor="end_date">End Date</Label>
+        <Input
+          type="datetime-local"
+          id="end_date"
+          name="end_date"
+          onChange={handleTimestampChange}
+        />
+        </div>
+        </div>
+        <div className='mt-[3rem]'>
+        <Button onClick={ScheduleWalkathon}>Schedule</Button>
+        </div>
+      
 
-    <label  className=' text-lg font-semibold mt-2' htmlFor="date">Date</label>
-    <input className='p-2 bg-gray-300 rounded-md' type="date" id="date" name="date" onChange={(e)=>{
-      setIndat({...indat,date:e.target.value})}}></input>
 
-    <label  className=' text-lg font-semibold mt-2'> StartTime</label>
-    <input className='p-2 bg-gray-300 rounded-md' type="time" name='st' onChange={(e)=>{
-      setIndat({...indat,st:e.target.value})}}/>
-
-    <label  className=' text-lg font-semibold mt-2'> EndTime</label>
-    <input className='p-2 bg-gray-300 rounded-md' type="time" name='et' onChange={(e)=>{
-      setIndat({...indat,et:e.target.value})}}/>
-
-    <label  className=' text-lg font-semibold mt-2'>StartLocation</label>
-    <input className='p-2 bg-gray-300 rounded-md' type="text"  name="location" onChange={(e)=>{
-      setIndat({...indat,sloc:e.target.value})}}></input>
-
-<label  className=' text-lg font-semibold mt-2'>Destination</label>
-    <input className='p-2 bg-gray-300 rounded-md' type="text"  name="location" onChange={(e)=>{
-      setIndat({...indat,eloc:e.target.value})}}></input>
-
-<label  className=' text-lg font-semibold mt-2'>Price</label>
-    <input className='p-2 bg-gray-300 rounded-md' type="number"  name="price" onChange={(e)=>{
-      setIndat({...indat,price:e.target.value})}}></input>
-
-    <label  className=' text-lg font-semibold mt-2'>Description</label>
-   <textarea className='bg-gray-300' name="dec" onChange={(e)=>{
-    setIndat({...indat,dec:e.target.value})}}></textarea>
-<div className="flex justify-center">
-   <button className=' bg-black font-semibold p-3 rounded sm:mt-10 mt-5 border-2 border-black w-40 ml-20 sm:ml-60 xl:ml-8 lg:w-1/3 md:ml-72 md:w-60  hover:bg-white hover:text-black text-white'  type="submit"  onClick={hassubmit}>Submit</button>
-     </div>
-    </form>
-  </div>
-  </div>
-
-  </>
-}
-
+    </div>
+  );
+};
 
 export default Page;

@@ -145,7 +145,54 @@ export const PostUserDetail=async(user_id: string,user_name: string,age: number,
     if (!response.ok) {
       throw new Error('Network Error');
     }
-    return response;
+return response;
+  }
+    catch(err) {
+
+      console.log(err);
+    }
+}
+
+
+export const GetWalkSteps7=async(access_token:string,refresh_token:string) => {
+
+  try {
+    const response = await fetch(`${url}/auth/fetch-data-days`, {
+      method: "POST",
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({ access_token,refresh_token,num:7 })
+    });
+
+
+    if (!response.ok) {
+      throw new Error('Network Error');
+    }
+    const data = await response.json(); 
+    return data;
+
+  }
+    catch(err) {
+
+      console.log(err);
+    }
+}
+
+
+export const ScheduleWalkathonApi=async(form:any) => {
+
+  try {
+    const response = await fetch(`${url}/walkathon/insert`, {
+      method: "POST",
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify(form)
+    });
+
+
+    if (!response.ok) {
+      throw new Error('Network Error');
+    }
+    const data = await response.json(); 
+    return data;
 
   }
     catch(err) {

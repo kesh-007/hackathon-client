@@ -6,6 +6,7 @@ import NavBar from '@/components/NavBar';
 import SideBar from '@/components/SideBar';
 import { ThemeProvider } from '@/components/theme-provider';
 import ReduxProvider from '@/redux/provider';
+import toast, { Toaster } from 'react-hot-toast';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <main>
+              <Toaster/>
     {children}
 
             </main>

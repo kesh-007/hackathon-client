@@ -12,14 +12,11 @@ function Card({image}:{image:string}){
     return (
         <div className="relative rounded-xl mb-10 shadow-lg">
             
-                <div className="flex items-end px-5 pb-5 absolute rounded-lg top-0 left-0 right-0 bottom-0" style={{backgroundColor : "rgba(0 , 0, 0, 0.35)"}}>
-                    <p className="text-white"></p>
-                </div>
-                <Image 
+
+                <img 
                     alt="Loading"
                     className="rounded-lg"
-                    src={require(`../1.jpg`)} 
-                    height={100} width={100}
+                    src={image} 
                 />
         </div>
     )
@@ -38,9 +35,10 @@ export default function EventCarousal(){
             showArrows={false}
             showStatus={false}
         >
-
-            <Card image={'../1.jpg'}/>
-            <Card image={'../1.jpg'}/>
+            <img src={'https://c1.wallpaperflare.com/preview/459/48/965/man-guy-male-sunset.jpg'}  className="h-[300px] w-full"/>
+           
+            <img src={'https://c1.wallpaperflare.com/preview/275/839/743/man-sunset-standing-silhouette.jpg'} className="h-[300px] w-full"/>
+            <img src={'https://c4.wallpaperflare.com/wallpaper/323/169/221/beach-alone-clouds-sea-water-hd-wallpaper-preview.jpg'} className="h-[300px] w-full"/>
 
             
         </Carousel>

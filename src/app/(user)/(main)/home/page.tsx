@@ -79,18 +79,7 @@ const page = () => {
         <StepCounts />
       </div>
 
-      <div className="h-[9em] w-full  mt-2 flex gap-5 overflow-x-scroll p-5">
-        {Activities.map((value, index) => (
-          <div
-            key={index}
-            className="rounded-lg flex bg-gray-300 flex-1 justify-center flex-col items-center"
-          >
-            <div className="text-4xl">{value.icon}</div>
-            <p>{value.name}</p>
-          </div>
-        ))}
-      </div>
-
+      
       <div className="pt-3">
         <Workout />
       </div>

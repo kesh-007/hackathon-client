@@ -22,7 +22,7 @@ export default function DataTable(){
               <TableRow>
                 {
                     table_heading.map((value , index) => (
-                        <TableHead className="text-md font-semibold bg-gray-100 " key={index}>
+                        <TableHead className="text-md font-semibold  " key={index}>
                             {value}
                         </TableHead>
                     ))

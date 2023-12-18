@@ -42,11 +42,6 @@ const BottomNavBar = () => {
         </Link>
       </div>
       
-      <div onClick={() => handleIconClick("account")}>
-        <Link href={'/profile'}>
-        <VscAccount className={getIconStyle("account")} color={active === "account" ? "#F64D41" : "#ccc"} />
-        </Link>
-      </div>
         
     </div>
   );

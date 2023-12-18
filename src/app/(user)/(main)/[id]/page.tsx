@@ -4,6 +4,8 @@ import {DATA} from "./data/dummy";
 import  Cookies  from 'universal-cookie';
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Registeration({params}:{params:any}){
     const cookies = new Cookies();
@@ -26,7 +28,7 @@ export default function Registeration({params}:{params:any}){
     }, [])
 
   async function handleRegister(){
-        alert("Registered Successfully");
+        toast.success('Registered Successfully')
         console.log("Registered Successfully",token.profile.userID);
         await AddEnrollments(token.profile.userID,params.id)
         router.push('/search')
@@ -58,42 +60,31 @@ export default function Registeration({params}:{params:any}){
 ]
 
     return (
-        <div className="relative h-screen" style={{zIndex : 200}}>
-            <div 
-                className="flex flex-col p-5 pb-20 justify-between gap-10 absolute top-0 bottom-0 left-0 rounded-2xl right-0" 
-                style={{backgroundColor : "rgba(0,0,0,0.8)"}}
-            >
-
-            <div className="mt-[2rem] gap-10 flex flex-col">
-                <p className="text-white text-4xl">Registration</p>
-                <div className="gap-5 flex mt-7 flex-col">
-                    {
-                        rules.map((value , index) => (
-                            <div className="text-gray-400 text-lg">
-                                <p>* {value.rule}</p>
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
+        <div className="h-[110vh] ">
             
-            <div className="gap-5 flex flex-col text-sm" >
-                <div className="flex text-gray-50 gap-5">
-                    <input type="checkbox"/>
-                    <p>
-App usage signifies acceptance of our terms and privacy policy for data handling.</p>
-                </div>
-                <div>
-                    <button disabled={isdisabled} onClick={handleRegister} className="bg-white rounded-xl p-3 text-black w-full">{text}</button>
-                </div>
-            </div>
-            </div>
-            <img 
-                src={DATA[0].poster} 
-                alt="loading"
+        <img
+          src="https://images.unsplash.com/photo-1592903204858-e288251ad9cc?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2Fsa2luZ3xlbnwwfHwwfHx8MA%3D%3D"
+          alt="Image"
+        />
+  
+        <div className="rounded-[2rem] h-[410px] bg-gray-100 absolute bottom-0 left-0 right-0 z-10">
+            <h1 className="text-center p-2 text-xl font-bold">Rules to be followed</h1>
 
-                className="object-cover h-screen w-full"
-            />
+          {rules.map((rule) => (
+            <div  className="flex space-y-2  p-2 items-center justify-start space-x-2">
+              <div className="w-1 h-1 bg-black rounded-full"></div>
+              <p className="text-sm font-semibold text-gray-700">{rule.rule}</p>
+            </div>
+          ))}
+
+<div className="flex justify-center mt-3">
+
+          <Button  onClick = {handleRegister} className="w-[90%] ">{text}</Button>
+          </div>
+         
         </div>
-    );
+      </div>
+
+
+        );
 }

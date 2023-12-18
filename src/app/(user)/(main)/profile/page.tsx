@@ -1,8 +1,11 @@
-import React from 'react'
-
+import Cards from './components/Cards'
+import Profile from './components/Profile'
 const page = () => {
   return (
-    <div>page</div>
+    <div>
+      <Profile/>      
+      <Cards/>
+    </div>
   )
 }
 

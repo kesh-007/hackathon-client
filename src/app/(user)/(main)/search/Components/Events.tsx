@@ -7,7 +7,6 @@ export default function Events({title}:{title:string}){
     return (
         <div className="">
             <div className="p-5 text-xl">
-                <p>{title}</p>
             </div>
             <EventCarousal/>
         </div>
